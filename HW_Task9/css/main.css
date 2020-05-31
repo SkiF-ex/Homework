@@ -13,6 +13,9 @@ nav a {
   nav a:hover {
     color: inherit !important; }
 
+button:hover {
+  cursor: pointer; }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
