@@ -1489,20 +1489,98 @@ hr {
     background-size: cover;
     height: 244px;
     width: 360px; }
+    .portfolio_block-left:hover::before {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-attach.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 50px;
+      bottom: 0;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px; }
+    .portfolio_block-left:hover::after {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-search.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; }
   .portfolio_block-center {
     background-image: url(../img/card-city.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 244px;
     width: 360px; }
+    .portfolio_block-center:hover::before {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-attach.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 50px;
+      bottom: 0;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px; }
+    .portfolio_block-center:hover::after {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-search.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; }
   .portfolio_block-right {
-    border-radius: 0;
     background-image: url(../img/card-mountains.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 246px;
     width: 366px;
-    margin-right: 0; }
+    margin-right: 0;
+    position: relative; }
+    .portfolio_block-right:hover::before {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-attach.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 50px;
+      bottom: 0;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px; }
+    .portfolio_block-right:hover::after {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-search.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; }
   @media all and (max-width: 768px) {
     .portfolio_block-all {
       display: flex;

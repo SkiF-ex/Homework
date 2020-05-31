@@ -5,6 +5,40 @@
   @include make-lg-column($lg);
 }
 
+@mixin portfoliohover {
+  &:hover {
+    &::before {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-attach.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 50px;
+      bottom: 0;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &::after {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-search.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
+
 @mixin whitesquare {
   &::after {
     content: "";
