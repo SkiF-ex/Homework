@@ -816,7 +816,8 @@ hr {
   background-image: url(../img/post-page/radio.svg);
   background-repeat: no-repeat;
   background-position: center;
-  transform: rotate(180deg); }
+  transform: rotate(180deg);
+  display: block; }
   @media (max-width: 768px) {
     .scroll-to-top {
       display: none; } }
