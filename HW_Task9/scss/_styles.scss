@@ -380,13 +380,14 @@
     width: 360px;
     border-radius: 5px;
 
-    @media all and (max-width: $mob-sm) {
+    @media all and (max-width: $mob-md) {
       margin: 0 auto;
+      height: 244px;
     }
 
     @media all and (min-width: $mob-sm) {
       width: 100%;
-      height: 180px;
+      height: 244px;
       background-position: center;
     }
   }
@@ -623,6 +624,8 @@
   &-block {
     display: flex;
     justify-content: space-between;
+    width: 363px;
+    margin-left: -18px;
   }
 
   &-button {
@@ -756,7 +759,7 @@
       }
 
       @media all and (min-width: $mob-md) {
-        right: 17.5%;
+        right: 20.5%;
       }
     }
   }
@@ -1027,7 +1030,7 @@
         width: 1px;
         border: 1px solid $alter-alto;
         left: 2px;
-        top: 194px;
+        top: 200px;
 
         @media all and (max-width: $mob-sm) {
           display: none;
@@ -1068,11 +1071,15 @@
         @include header2;
 
         margin-right: -26px;
-        margin-top: 10px;
+        margin-top: 100px;
         height: 39px;
         width: 251px;
         letter-spacing: 0;
         display: block;
+
+        @media (max-width: $mob-md) {
+          margin-top: 10px;
+        }
 
         &-first {
           @include header5;
@@ -1552,12 +1559,12 @@
     padding: 10px;
     background-position-x: 285px;
 
-    @media (min-width: $mob-sm) {
+    @media (max-width: $mob-md) {
       margin-right: -10px;
     }
 
-    @media (max-width: $mob-md) {
-      margin-right: -10px;
+    @media (min-width: $mob-sm) {
+      margin-right: 20px;
     }
   }
 
@@ -1568,6 +1575,22 @@
     background-color: $fantasy;
     margin: 50px auto 0 auto;
     position: relative;
+
+    &-video {
+      @include orangesquare(url(../img/blog-page/video-t.svg));
+    }
+
+    &-audio {
+      @include orangesquare(url(../img/blog-page/music-t.svg));
+    }
+
+    &-picturesquare {
+      @include orangesquare(url(../img/blog-page/picture-t.svg));
+    }
+
+    &-text {
+      @include orangesquare(url(../img/blog-page/text-t.svg));
+    }
 
     &:hover {
       &::before {
@@ -1623,9 +1646,14 @@
       border-radius: 5px;
       background-position: 50%;
 
-      @media (min-width: $mob-xs) {
+      @media (max-width: $mob-sm) {
         margin-left: 10px;
         margin-top: 20px;
+      }
+
+      @media (max-width: $mob-md) {
+        margin-top: 0;
+        margin-left: 0;
       }
 
       &-first {
@@ -1656,11 +1684,19 @@
         margin-left: 0;
       }
 
+      @media (min-width: $mob-lg) {
+        margin-left: 20px;
+      }
+
       &-stars {
         @include stars;
 
         @media (min-width: $mob-sm) {
           margin-left: 0;
+        }
+
+        @media (min-width: $desk-lg) {
+          margin-left: 10px;
         }
       }
 
@@ -1743,12 +1779,12 @@
         width: 460px;
         letter-spacing: 0;
 
-        @media (min-width: $mob-sm) {
+        @media (max-width: $mob-xs) {
           width: 100%;
         }
 
-        @media (min-width: $mob-xs) {
-          width: 100%;
+        @media (min-width: $mob-sm) {
+          width: 460px;
         }
 
         &-audioblock {
@@ -1773,16 +1809,16 @@
         border-radius: 5px;
         margin: 30px 0 0 1px;
 
-        @media (min-width: $mob-sm) {
+        @media (min-width: $mob-xs) {
           margin-top: 0;
           float: right;
           margin-bottom: 20px;
         }
 
-        @media (min-width: $mob-xs) {
-          margin-top: 0;
-          float: right;
-          margin-bottom: 20px;
+        @media (min-width: $mob-lg) {
+          float: none;
+          border-radius: 5px;
+          margin: 30px 0 0 1px;
         }
 
         &:hover {
@@ -1795,12 +1831,12 @@
         display: flex;
         margin-top: 27px;
 
-        @media (min-width: $mob-xs) {
+        @media (max-width: $mob-xs) {
           margin-left: 10px;
         }
 
-        @media (max-width: $mob-sm) {
-          margin-left: -20px;
+        @media (min-width: $mob-sm) {
+          margin-left: 0;
         }
 
         &-namedesc {
@@ -1852,9 +1888,13 @@
       }
 
       &-undername {
-        @media (min-width: $mob-sm) {
+        @media (max-width: $mob-sm) {
           display: flex;
           flex-direction: column;
+        }
+
+        @media (min-width: $mob-md) {
+          display: flex;
         }
 
         &-detailblock {

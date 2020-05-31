@@ -53,6 +53,35 @@
   }
 }
 
+@mixin orangesquare ($img) {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: $fantasy;
+    background-image: $img;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 78px;
+    height: 70px;
+    right: 0;
+    top: 0;
+    border-radius: 5px;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: $white;
+    width: 80px;
+    height: 72px;
+    right: 0;
+    top: 0;
+    border-bottom-left-radius: 5px;
+  }
+}
+
 @mixin header1 {
   color: $main-color;
   font-family: $main-font;
