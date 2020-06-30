@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>BlogWorld</title>
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+<body class="body">
+  <header id="toTop" class="header">
+    <div class="container">
+      <div class="row">
+        <div class="header-content-left">
+          <div class="header-content-left-container">
+            <h4 class="header-content-left-name">BlogWorld</h4>
+            <div class="header-content-left-postform-container">
+              <button class="header-content-left-buttons-add" id="addNewPost">Add new post</button>
+              <div id="postform" class="header-content-left-postform header-content-left-postform-none">
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Type of post</h4>
+                  <select class="header-content-left-postform-block-input" id="formType" size="1">
+                    <option>Video</option>
+                    <option>Text</option>
+                    <option>Audio</option>
+                    <option>Image</option>
+                  </select>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Image link</h4>
+                  <input class="header-content-left-postform-block-input" id="formImgSrc" placeholder="img.ua"/>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Title</h4>
+                  <input id="formTitle" class="header-content-left-postform-block-input"/>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Author</h4>
+                  <input class="header-content-left-postform-block-input" id="formAuthor" placeholder="Author name"/>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Date</h4>
+                  <input class="header-content-left-postform-block-input" id="formDate" type="date"/>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Post description</h4>
+                  <textarea class="header-content-left-postform-block-input" id="formDescription" rows="4" cols="25"></textarea>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Quote</h4>
+                  <input class="header-content-left-postform-block-input" id="formQuote" placeholder="Some quotes"/>
+                </div>
+                <button  disabled="disabled" class="header-content-left-postform-block-create" id="createPost">Create post</button>
+              </div>
+            </div>
+          </div>
+          <h1 class="header-content-left-heading">Ideas and perspectives you won’t find anywhere else.</h1>
+          <div class="header-content-left-description">BlogWorld taps into the brains of the world’s most insightful writers, thinkers, and storytellers to bring you the smartest takes on topics that matter. So whatever your interest, you can always find fresh thinking and unique perspectives.</div>
+          <div class="header-content-left-buttons">
+            <button class="header-content-left-buttons-first">Explore</button>
+            <button class="header-content-left-buttons-second">Learn more</button>
+          </div>
+        </div>
+        <div class="header-content-right">
+          <nav class="header-content-right-nav">
+            <ul class="header-content-right-links">
+              <li class="header-content-right-links-box">
+                <a href="index.html" class="header-content-right-links-link header-content-right-links-link-active">Home</a>
+              </li>
+              <li class="header-content-right-links-box">
+                <a href="#portfolio" class="header-content-right-links-link">Portfolio</a>
+              </li>
+              <li class="header-content-right-links-box">
+                <a href="blog.html" class="header-content-right-links-link">Blog</a>
+              </li>
+              <li class="header-content-right-links-box">
+                <a href="#" class="header-content-right-links-link">Pages</a>
+              </li>
+              <li class="header-content-right-links-box">
+                <a href="#about" class="header-content-right-links-link">About</a>
+              </li>
+              <li class="header-content-right-links-box">
+                <a href="#contact" class="header-content-right-links-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <section id="about">
+      <div class="section_header-about section">
+        <h2 class="section_header-head">About us</h2>
+        <div class="section_header-about-strip"></div>
+        <p class="section_header-text">This is who we are - or at least who we strive to be...</p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="folders">
+            <div class="folders_general folders_typography">
+              <div class="folders_typography-icon"></div>
+              <div class="folders_typography-text">Typography</div>
+            </div>
+            <div class="folders_general folders_icon-set">
+              <div class="folders_icon-set-icon"></div>
+              <div class="folders_icon-set-text">Icon-set</div>
+            </div>
+            <div class="folders_general folders_accurate">
+              <div class="folders_accurate-icon"></div>
+              <div class="folders_accurate-text">Accurate</div>
+            </div>
+          </div>
+          <div class="media_player">
+            <video class="media_player-content" poster="./img/about-picture.png" muted="muted">
+            <source src=./img/video.mp4>
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="posts">
+      <div class="section_header-posts section">
+        <h2 class="section_header-head">Latest posts</h2>
+        <div class="section_header-posts-strip"></div>
+        <p class="section_header-text section_header-posts-text">Information is a source of learning. But unless it is organized, processed and available to the right people</p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="post_block-i post_block-i-left">
+            <div class="post_block-i-img post_block-i-left-img"></div>
+            <div class="post_block-i-text-container">
+              <a class="post_block-i-header">In the Future We Will All Live in Star Wars</a>
+              <p class="post_block-i-description">The thing you’re doing now, reading prose on a screen, is going out of fashion. The defining narrative of our online moment concerns the decline of text, and the exploding reach and power of audio and video…</p>
+              <div class="post_block-i-under-description">
+                <div class="post_block-i-date post_block-i-details">20 oct, 2019</div>
+                <div class="post_block-i-time-ago post_block-i-details">10 min read</div>
+                <div class="post_block-i-comments post_block-i-details">11</div>
+              </div>
+            </div>
+          </div>
+          <div class="post_block-i post_block-i-center">
+            <div class="post_block-i-img post_block-i-center-img"></div>
+            <div class="post_block-i-text-container">
+              <a class="post_block-i-header">Rubik’s Cube? No, Robotics and AI are…</a>
+              <p class="post_block-i-description">In other words, I will try to de-hype the crowd about the recent development in robotics. Concretely, OpenAI has claimed some pretty amazing results with learning to solve the Rubik’s cube with a robotic hand…</p>
+              <div class="post_block-i-under-description">
+                <div class="post_block-i-date post_block-i-details">11 oct, 2019</div>
+                <div class="post_block-i-time-ago post_block-i-details">7 min read</div>
+                <div class="post_block-i-comments post_block-i-details">19</div>
+              </div>
+            </div>
+          </div>
+            <div class="post_block-i post_block-i-right">
+              <div class="post_block-i-img post_block-i-right-img"></div>
+              <div class="post_block-i-text-container">
+              <a class="post_block-i-header">How the Internet of Things will Transfo…</a>
+              <p class="post_block-i-description">The Internet of Things (IoT) promises to be the most important technological development for consumers since the advent of the smartphone. Experts believe that this collection of internet-connected technolog…</p>
+              <div class="post_block-i-under-description">
+                <div class="post_block-i-date post_block-i-details">28 sep, 2019</div>
+                <div class="post_block-i-time-ago post_block-i-details">16 min read</div>
+                <div class="post_block-i-comments post_block-i-details">41</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="portfolio">
+      <div class="section_header-portfolio section">
+        <h2 class="section_header-head">Latest portfolio</h2>
+        <div class="section_header-portfolio-strip"></div>
+        <p class="section_header-text section_header-portfolio-text">Put there articles successfully special warrant submit agree what along then</p>
+      </div>
+      <div class="container">
+        <div class="row portfolio_block-all">
+          <div class="portfolio_block portfolio_block-left">
+            <div class="portfolio_block-text-container">
+              <h3 class="portfolio_block-header">Art Ocean</h3>
+              <p class="portfolio_block-description">Photography, art, nature</p>
+            </div>
+          </div>
+          <div class="portfolio_block portfolio_block-center">
+            <div class="portfolio_block-text-container">
+              <h3 class="portfolio_block-header">City Guide</h3>
+              <p class="portfolio_block-description">Photography, city, way</p>
+            </div>
+          </div>
+          <div class="portfolio_block portfolio_block-right">
+            <div class="portfolio_block-text-container">
+              <h3 class="portfolio_block-header">Mountains</h3>
+              <p class="portfolio_block-description">Art, hiking</p>
+            </div>
+          </div>
+        </div>
+        <div class="buttons_section-container container">
+          <div class="buttons_section-container-block">
+            <button class="buttons_section-container-button buttons_section-container-button-left"></button>
+            <button class="buttons_section-container-button buttons_section-container-button-right"></button>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="buttons_see-container"><button class="buttons_see-container-button">See all works</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-testimonials">
+      <div class="section_header-testimonials section">
+        <h2 class="section_header-head">Testimonials</h2>
+        <div class="section_header-testimonials-strip"></div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <button class="section-testimonials-buttons section-testimonials-buttons-left"></button>
+          <div class="section-testimonials-container">
+            <div class="section-testimonials-container-text">
+              <div class="section-testimonials-container-text-box">
+                <h3 class="section-testimonials-container-text-quote">“</h3>
+                <p class="section-testimonials-container-text-description">We move at a fast pace. I’m always working on something. I am excited about it!</p>
+                <p class="section-testimonials-container-text-name">Martin Oda</p>
+                <p class="section-testimonials-container-text-position">Product desgner</p>
+              </div>
+            </div>
+            <div class="section-testimonials-container-photo"></div>
+          </div>
+          <button class="section-testimonials-buttons section-testimonials-buttons-right"></button>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="section_contact container">
+      <div class="row">
+        <div class="section_header-contact section_contact-header section">
+          <h2 class="section_header-head section_contact-head">Contact us</h2>
+          <div class="section_contact-strip"></div>
+          <p class="section_header-text section_contact-text">Put there articles successfully special warrant submit agree what along then</p>
+          <div class="section_contact-messangers">
+            <ul class="section_contact-messangers-table">
+              <li class="section_contact-messangers-table-item">
+                <a href="#" class="section_contact-messangers-table-item-link section_contact-messangers-table-item-link-facebook"></a>
+              </li>
+              <li class="section_contact-messangers-table-item">
+                <a href="#" class="section_contact-messangers-table-item-link section_contact-messangers-table-item-link-instagram"></a>
+              </li>
+              <li class="section_contact-messangers-table-item">
+                <a href="#" class="section_contact-messangers-table-item-link section_contact-messangers-table-item-link-dribbble"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="section_contact-block">
+          <div class="section_contact-block-container">
+            <h2 class="section_contact-block-container-header">What will be next step?</h2>
+            <div class="section_contact-block-container-descriptions">
+              <h5 class="section_contact-block-container-header-first">1. We’ll prepare a proposal</h5>
+              <p class="section_contact-block-container-item">Required scope, timeline and apr. price will be included if you provide us with detail information about a project.</p>
+              <h5 class="section_contact-block-container-header-small">2. Together we discuss it</h5>
+              <p class="section_contact-block-container-item">Let’s get acquainted and discuss all the possible variant and options. Google Hangouts or Skype usually wirks great.</p>
+              <h5 class="section_contact-block-container-header-small">3. Let’s start building</h5>
+              <p class="section_contact-block-container-item">When the contract is signed and all goals are set we can start the first sprint.</p>
+            </div>
+          </div>
+          <div class="section_contact-block-form">
+            <div class="section_contact-block-form-text-block">
+              <div class="section_contact-block-form-text-block-icon"></div>
+              <p class="section_contact-block-form-text-block-description"></p>
+            </div>
+            <div class="section_contact-block-form-feedback">
+              <div class="section_contact-block-form-feedback-header">
+                <div class="section_contact-block-form-feedback-header-icon"></div>
+                <p class="section_contact-block-form-feedback-header-description">Write us a few words about your project and we will prepare proposal for you  within <span class="section_contact-block-form-feedback-header-description-bold">24 hours</span></p>
+              </div>
+              <div class="section_contact-block-form-feedback-container">
+                <div class="section_contact-block-form-feedback-inputs">
+                  <label class="section_contact-block-form-feedback-inputs-label">Your name</label>
+                  <input class="section_contact-block-form-feedback-inputs-field"/>
+                  <label class="section_contact-block-form-feedback-inputs-label">Email</label>
+                  <input type="email" class="section_contact-block-form-feedback-inputs-field"/>
+                  <div class="section_contact-block-form-feedback-inputs-pass--show-block">
+                    <label class="section_contact-block-form-feedback-inputs-label">Password</label>
+                    <label class="section_contact-block-form-feedback-inputs-show">show</label>
+                  </div>
+                  <input type="password" class="section_contact-block-form-feedback-inputs-field"/>
+                  <button class="section_contact-block-form-feedback-inputs-button">Send message</button>
+                  <p class="section_contact-block-form-feedback-inputs-mail">If you need to have a DNA first, just contact us at <span class="section_contact-block-form-feedback-inputs-mail-bold">email@gmail.com</span></p>
+                </div>
+                <div class="section_contact-block-form-feedback-map"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <a href="#toTop" class="scroll-to-top"></a>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer_container">
+          <div class="footer_messangers">
+            <ul class="footer_messangers-table">
+              <li class="footer_messangers-table-item">
+                <a href="#" class="footer_messangers-table-item-link footer_messangers-table-item-link-facebook"></a>
+              </li>
+              <li class="footer_messangers-table-item">
+                <a href="#" class="footer_messangers-table-item-link footer_messangers-table-item-link-instagram"></a>
+              </li>
+              <li class="footer_messangers-table-item">
+                <a href="#" class="footer_messangers-table-item-link footer_messangers-table-item-link-dribbble"></a>
+              </li>
+            </ul>
+          </div>
+          <h4 class="footer_blogW">BlogWorld</h4>
+          <p class="footer_all-rights">©2019 All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/form.js"></script>
+</body>
+</html>
