@@ -12,9 +12,23 @@ const getPostById = async () => {
   }
 };
 
+const ifAudioType = (data) => {
+  if (data.type === 'Audio') {
+    const docFrag = document.createDocumentFragment();
+    const element = document.createElement('audio');
+    element.setAttribute('src', '../HW_Task/img/audio.mp3');
+    element.setAttribute('controls', 'controls');
+    element.setAttribute('class', 'blog_section-block-content-audio')
 
+    docFrag.appendChild(element);
+    document.getElementById('postImg').after(docFrag);
+  } else {
+    return;
+  }
+}
 
 const renderPost = (data) => {
+  ifAudioType(data);
   if (data.imgLink != 'null') {
     document.getElementById('postImg').setAttribute('src',data.imgLink);
   }

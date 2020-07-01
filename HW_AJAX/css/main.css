@@ -2985,7 +2985,7 @@ hr {
         margin-top: 0; }
       .blog_section-block-content-description-fullblock {
         width: 1033px; }
-        @media (max-width: 1025px) {
+        @media (max-width: 1450px) {
           .blog_section-block-content-description-fullblock {
             width: 100%; } }
     .blog_section-block-content-button {

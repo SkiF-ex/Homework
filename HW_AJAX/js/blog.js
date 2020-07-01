@@ -19,7 +19,8 @@ const getAllPosts = () => {
 
 const findParagraph = (post) => {
   if (post.author === 'Sarah Healy') {
-    return 'Fog down the river, where it rolls deified among the tiers of shipping and the waterside pollutions of a great (and dirty)...';
+    return `Fog down the river, where it rolls deified among the tiers of 
+    shipping and the waterside pollutions of a great (and dirty)...`;
   }
 
   let stringArray = post.description.split(' ');
@@ -42,8 +43,10 @@ const withPic = (post) => {
   if (post.type === 'Text') {
     imgTag = () => ``;
     fullBlockTag = `blog_section-block-content-description-fullblock`;
+    return 'blog_section-block-withoutpic';
   } else {
-    imgTag = (post) => `<div style="background-image: url(${post.imgLink});" class="blog_section-block-picture ${ifVideoType(post)}"></div>`;
+    imgTag = (post) => `<div style="background-image: url(${post.imgLink});" 
+      class="blog_section-block-picture ${ifVideoType(post)}"></div>`;
     return 'blog_section-block-withpic';
   }
 };
@@ -51,30 +54,32 @@ const withPic = (post) => {
 const ifVideoType = (post) => {
   if (post.type === 'Video') {
     return `blog_section-block-picture-video`;
+  } else {
+    return '';
   }
 }
 
 const ifAudioType = (post) => {
   if (post.type === 'Audio') {
-    const docFrag = document.createDocumentFragment();
-    const element = document.createElement('audio');
-    element.setAttribute('src', '../HW_Task/img/audio.mp3');
-    element.setAttribute('controls', 'controls');
-    element.setAttribute('class', 'blog_section-block-content-audio')
-
-    docFrag.appendChild(element);
-    document.getElementById('contentHeader').appendChild(docFrag);
+    return `<audio src="../HW_Task/img/audio.mp3" controls="controls" class="blog_section-block-content-audio">
+    </audio>`;
+  } else {
+    return ``;
   }
 }
 
 const firstPost = (data, post) => {
   if (data[0].id === post.id) {
     return 'blog_section-block-first';
+  } else {
+    return '';
   }
 }
 
 const withFieldPic = (post) => {
-  if (post.imgLink != 'null') {
+  if (!post.imgLink === true) {
+    return 'blog_section-block-content-withoutpic';
+  } else {
     return 'blog_section-block-content-withpic';
   }
 }
@@ -104,7 +109,7 @@ const renderPosts = (data) => {
               </div>
             </div>
           </div>
-          <div class="blog_section-block-content-header" id="contentHeader">${post.title}</div>
+          <div class="blog_section-block-content-header" id="contentHeader">${post.title}</div>${ifAudioType(post)}
           <div class="blog_section-block-content-description ${fullBlockTag}">${findParagraph(post)} …</div>
           <button id="${post.id}" name="buttonReadMore" class="blog_section-block-content-button">Read more</button>
         </div>

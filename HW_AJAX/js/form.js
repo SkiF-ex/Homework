@@ -1,6 +1,6 @@
 const objForm = {
-  bool : true,
-  form : document.getElementById('postform'),
+  bool: true,
+  form: document.getElementById('postform'),
 
   formOpener (){    
     if (this.bool === false) {
@@ -45,14 +45,14 @@ const getAllPostsForId = async () => {
     let identifier = data[data.length - 1].id + 1;
 
     let collectData = {
-      id : identifier,
-      type : document.getElementById('formType').value,
-      imgLink : document.getElementById('formImgSrc').value,
-      title : document.getElementById('formTitle').value,
-      author : document.getElementById('formAuthor').value,
-      date : document.getElementById('formDate').value,
-      description : document.getElementById('formDescription').value,
-      quote : document.getElementById('formQuote').value
+      id: identifier,
+      type: document.getElementById('formType').value,
+      imgLink: document.getElementById('formImgSrc').value,
+      title: document.getElementById('formTitle').value,
+      author: document.getElementById('formAuthor').value,
+      date: document.getElementById('formDate').value,
+      description: document.getElementById('formDescription').value,
+      quote: document.getElementById('formQuote').value
     }
     createPost(collectData, collectData);
   }
