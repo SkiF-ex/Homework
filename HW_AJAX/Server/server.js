@@ -15,6 +15,7 @@ const swaggerDocument = YAML.load('./config/swagger.yaml');
 const fs = require('fs');
 
 let list;
+let listComments;
 
 fs.readFile('./config/articles.json', 'utf8', function (err,data) {
     if (err) {
@@ -23,6 +24,14 @@ fs.readFile('./config/articles.json', 'utf8', function (err,data) {
     list = data;
     list = JSON.parse(list);
 });
+
+fs.readFile('./config/comments.json', 'utf8', function (err, data) {
+    if (err) {
+        return console.log(err);
+    }
+    listComments = data;
+    listComments = JSON.parse(listComments); 
+})
 // const apiConfig = require(ABSPATH + '/api');
 // app.use ->  this is middleware
 app.use(cors());
@@ -39,6 +48,11 @@ app.get('/', function(req, res) {
 app.get('/api/list', function(req, res) {
     log.info('==Get all list articles==');
     res.end(JSON.stringify(list));
+});
+
+app.get('/api/listComments', function(req, res) {
+    log.info('==Get all list comments==');
+    res.end(JSON.stringify(listComments));
 });
 
 app.get('/api/list/:id', function(req, res) {
