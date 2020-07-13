@@ -2,6 +2,7 @@ class Slider {
 
   constructor() {
     this.autoSlide;
+    this.target;
     this.goSlide();
   }
 
@@ -83,79 +84,105 @@ class Slider {
 
   goSlide() {
     clearTimeout(Slider.autoSlide);
+    const timer = 5000;
 
     Slider.autoSlide = setTimeout(function oneMoreTime() {
       blockUp.rightCard();
-      Slider.autoSlide = setTimeout(oneMoreTime, 5000)
-    }, 5000);
+      Slider.autoSlide = setTimeout(oneMoreTime, timer)
+    }, timer);
   }
 
   stopSlide() {
     clearTimeout(Slider.autoSlide);
   }
-}
+  
+  checkFunc(event) {
+    this.target = event.target;
 
-///////////////////////////////////////////
+    if (this.target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow'||
+        this.target.classList.value === 'portfolio_block-target-box') {
+      return true;
+    }
+  }
+}
 
 class BlockUp extends Slider{
 
   constructor() {
     super();
-    this.className = 'portfolio_block-resize'
+    this.className = 'portfolio_block-up'
   }
 
-  blockAddMargin(event) {
-    const target = event.target;
-
-    if(target.classList.value === 'portfolio_block-target-box') {
-      target.parentElement.classList.add('portfolio_block-resize');
-    }
+  blockAddMargin() {
+    this.target.parentElement.classList.add('portfolio_block-up');
   }
-  blockRemoveMargin(event) {
-    const target = event.target;
-
-    if(target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
-      target.parentElement.classList.remove('portfolio_block-resize');
-    }
+  blockRemoveMargin() {
+    this.target.parentElement.classList.remove('portfolio_block-up');
   }
 
-  blockAddShadow(event) {
-    const target = event.target;
-
-    if(target.classList.value === 'portfolio_block-target-box') {
-      target.classList.add('portfolio_block-target-box-shadow');
-    }
+  blockAddShadow() {
+    this.target.classList.add('portfolio_block-target-box-shadow');
   }
 
-  blockRemoveShadow(event) {
-    const target = event.target;
+  blockRemoveShadow() {
+  this.target.classList.remove('portfolio_block-target-box-shadow');
+  }
+}
 
-    if(target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
-      target.classList.remove('portfolio_block-target-box-shadow');
+class AnimateBlock extends Slider {
+  resizeOnClick(target) {
+    target.parentElement.setAttribute('style', 'margin-top:30px');
+    target.parentElement.querySelector('img').classList.add('portfolio_block-img-resize');
+  }
+  
+  resizeOnMouseOut(event) {
+    event.target.parentElement.removeAttribute('style');
+    event.target.parentElement.querySelector('img').classList.remove('portfolio_block-img-resize');
+  }
+
+  rotateFirst(event) {
+    if (event.target.parentElement.querySelector('img').classList.value === 
+        'portfolio_block-img portfolio_block-img-resize portfolio_block-img-rotateFirst'||
+        event.target.parentElement.querySelector('img').classList.value === 
+        'portfolio_block-img portfolio_block-img-rotateFirst portfolio_block-img-resize') {
+      event.target.parentElement.querySelector('img').classList.remove('portfolio_block-img-rotateFirst');
+      return;
+    }  
+    if (event.target.parentElement.querySelector('img').classList.value === 
+        'portfolio_block-img portfolio_block-img-resize') {
+      event.target.parentElement.querySelector('img').classList.add('portfolio_block-img-rotateFirst');
     }
   }
 }
 
 const blockUp = new BlockUp();
+const animate = new AnimateBlock();
 
 document.getElementById('portfolioBlock').addEventListener('mouseover', (event) => {
-  const target = event.target;
-
-    if(target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
-      blockUp.stopSlide(event);
-    }
-  blockUp.blockAddMargin(event);
-  blockUp.blockAddShadow(event);
+  if (blockUp.checkFunc(event) === true) {
+    blockUp.stopSlide();
+    blockUp.blockAddMargin();
+    blockUp.blockAddShadow();
+  }
 })
 
 document.getElementById('portfolioBlock').addEventListener('mouseout', (event) => {
-  const target = event.target;
+  if (blockUp.checkFunc(event) === true) {
+    blockUp.goSlide();
+    blockUp.blockRemoveMargin();
+    blockUp.blockRemoveShadow();
+    animate.resizeOnMouseOut(event);
+  }
+  event.target.removeAttribute('style', 'background-color: rgba(0, 0, 0, 0)')
+})
 
-    if(target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
-      blockUp.goSlide(event);
-    }
-  blockUp.blockRemoveMargin(event);
-  blockUp.blockRemoveShadow(event);
+document.getElementById('portfolioBlock').addEventListener('click', (event) => {
+  const target = event.target;
+  animate.rotateFirst(event);
+  if (target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
+    animate.resizeOnClick(target);
+  }
+  event.target.setAttribute('style', 'background-color: rgba(0, 0, 0, 0)')
 })
 
 document.getElementById('buttonsContainer').addEventListener('click',(event) => {

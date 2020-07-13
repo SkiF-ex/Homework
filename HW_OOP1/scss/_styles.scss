@@ -642,7 +642,7 @@
 
   @include portfoliohover;
 
-  &-resize {
+  &-up {
     transition: 0.5s;
     margin-top: 40px;
   }
@@ -653,6 +653,7 @@
     min-height: 244px;
     position: absolute;
     border-radius: 5px;
+    z-index: 5;
 
     &-shadow {
       background-color: rgba(0, 0, 0, 0.5);
@@ -667,6 +668,17 @@
     position: absolute;
     z-index: -1;
     border-radius: 5px;
+    transition: 0.5s;
+
+    &-resize {
+      z-index: 2;
+      height: 294px;
+      width: 410px;
+    }
+
+    &-rotateFirst {
+      transform: rotate(180deg);
+    }
   }
 
   &-header {

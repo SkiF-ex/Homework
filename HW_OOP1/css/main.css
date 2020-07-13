@@ -1572,8 +1572,9 @@ hr {
     right: 0;
     bottom: 0;
     border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px; }
-  .portfolio_block-resize {
+    border-bottom-right-radius: 5px;
+    z-index: -1; }
+  .portfolio_block-up {
     transition: 0.5s;
     margin-top: 40px; }
   .portfolio_block-target-box {
@@ -1581,7 +1582,8 @@ hr {
     min-width: 360px;
     min-height: 244px;
     position: absolute;
-    border-radius: 5px; }
+    border-radius: 5px;
+    z-index: 5; }
     .portfolio_block-target-box-shadow {
       background-color: rgba(0, 0, 0, 0.5); }
   .portfolio_block-img {
@@ -1591,7 +1593,14 @@ hr {
     width: 360px;
     position: absolute;
     z-index: -1;
-    border-radius: 5px; }
+    border-radius: 5px;
+    transition: 0.5s; }
+    .portfolio_block-img-resize {
+      z-index: 2;
+      height: 294px;
+      width: 410px; }
+    .portfolio_block-img-rotateFirst {
+      transform: rotate(180deg); }
   .portfolio_block-header {
     color: #4d4c49;
     font-family: "Hind Siliguri", sans-serif;
