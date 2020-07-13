@@ -1,12 +1,5 @@
-class Slider {
-
-  constructor() {
-    this.autoSlide;
-    this.target;
-    this.goSlide();
-  }
-
-  rightCard() {
+function Slider() {
+  this.rightCard = function() {
     const cardObj = {
       quanElems : document.querySelectorAll('.portfolio_block').length - 1,
       header : document.querySelector('.portfolio_block'),
@@ -35,7 +28,7 @@ class Slider {
     document.querySelector('.portfolio_block').remove()
   }
 
-  leftCard() {
+  this.leftCard = function () {
     const quanElems = document.querySelectorAll('.portfolio_block').length - 1;
     const cardObj = {  
       header : document.querySelectorAll('.portfolio_block')[quanElems],
@@ -63,8 +56,22 @@ class Slider {
     docFrag.appendChild(cardDiv);
     document.querySelector('.portfolio_block').before(docFrag);
   }
+  
+  this.checkFunc = function(event) {
+    this.target = event.target;
 
-  slideSide(event) {
+    if (this.target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow'||
+        this.target.classList.value === 'portfolio_block-target-box') {
+      return true;
+    }
+  }
+}
+
+function SwapSlide() {
+  Slider.call(this);
+  AutoSlide.call(this)
+
+  this.slideSide = function(event) {
     let target = event.target;
 
     if (target.id === 'buttonGoRight'){
@@ -77,114 +84,47 @@ class Slider {
       this.onMouseButton();
     }
   }
+}
 
-  onMouseButton() {
+function AutoSlide() {
+  Slider.call(this);
+
+  this.onMouseButton = function() {
     this.goSlide();
   }
 
-  goSlide() {
+  this.goSlide = function() {
     clearTimeout(Slider.autoSlide);
     const timer = 5000;
 
     Slider.autoSlide = setTimeout(function oneMoreTime() {
-      blockUp.rightCard();
+      autoSlide.rightCard();
       Slider.autoSlide = setTimeout(oneMoreTime, timer)
     }, timer);
   }
 
-  stopSlide() {
+  this.stopSlide = function() {
     clearTimeout(Slider.autoSlide);
   }
-  
-  checkFunc(event) {
-    this.target = event.target;
-
-    if (this.target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow'||
-        this.target.classList.value === 'portfolio_block-target-box') {
-      return true;
-    }
-  }
 }
 
-class BlockUp extends Slider{
+const autoSlide = new AutoSlide();
+const swapSlide = new SwapSlide();
 
-  constructor() {
-    super();
-    this.className = 'portfolio_block-up'
-  }
+autoSlide.goSlide();
 
-  blockAddMargin() {
-    this.target.parentElement.classList.add('portfolio_block-up');
-  }
-  blockRemoveMargin() {
-    this.target.parentElement.classList.remove('portfolio_block-up');
-  }
-
-  blockAddShadow() {
-    this.target.classList.add('portfolio_block-target-box-shadow');
-  }
-
-  blockRemoveShadow() {
-  this.target.classList.remove('portfolio_block-target-box-shadow');
-  }
-}
-
-class AnimationBlock extends Slider {
-  resizeOnClick(target) {
-    target.parentElement.setAttribute('style', 'margin-top:30px');
-    target.parentElement.querySelector('img').classList.add('portfolio_block-img-resize');
-  }
-  
-  resizeOnMouseOut(event) {
-    event.target.parentElement.removeAttribute('style');
-    event.target.parentElement.querySelector('img').classList.remove('portfolio_block-img-resize');
-  }
-
-  rotateFirst(event) {
-    if (event.target.parentElement.querySelector('img').classList.value === 
-        'portfolio_block-img portfolio_block-img-resize portfolio_block-img-rotateFirst'||
-        event.target.parentElement.querySelector('img').classList.value === 
-        'portfolio_block-img portfolio_block-img-rotateFirst portfolio_block-img-resize') {
-      event.target.parentElement.querySelector('img').classList.remove('portfolio_block-img-rotateFirst');
-      return;
-    }  
-    if (event.target.parentElement.querySelector('img').classList.value === 
-        'portfolio_block-img portfolio_block-img-resize') {
-      event.target.parentElement.querySelector('img').classList.add('portfolio_block-img-rotateFirst');
-    }
-  }
-}
-
-const blockUp = new BlockUp();
-const animation = new AnimationBlock();
+document.getElementById('buttonsContainer').addEventListener('click',(event) => {
+  swapSlide.slideSide(event);
+});
 
 document.getElementById('portfolioBlock').addEventListener('mouseover', (event) => {
-  if (blockUp.checkFunc(event) === true) {
-    blockUp.stopSlide();
-    blockUp.blockAddMargin();
-    blockUp.blockAddShadow();
+  if (autoSlide.checkFunc(event) === true) {
+    autoSlide.stopSlide();
   }
 })
 
 document.getElementById('portfolioBlock').addEventListener('mouseout', (event) => {
-  if (blockUp.checkFunc(event) === true) {
-    blockUp.goSlide();
-    blockUp.blockRemoveMargin();
-    blockUp.blockRemoveShadow();
-    animation.resizeOnMouseOut(event);
+  if (autoSlide.checkFunc(event) === true) {
+    autoSlide.goSlide();
   }
-  event.target.removeAttribute('style', 'background-color: rgba(0, 0, 0, 0)')
 })
-
-document.getElementById('portfolioBlock').addEventListener('click', (event) => {
-  const target = event.target;
-  animation.rotateFirst(event);
-  if (target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
-    animation.resizeOnClick(target);
-  }
-  event.target.setAttribute('style', 'background-color: rgba(0, 0, 0, 0)')
-})
-
-document.getElementById('buttonsContainer').addEventListener('click',(event) => {
-  blockUp.slideSide(event);
-});
