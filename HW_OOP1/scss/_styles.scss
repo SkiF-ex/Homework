@@ -642,6 +642,23 @@
 
   @include portfoliohover;
 
+  &-resize {
+    transition: 0.5s;
+    margin-top: 40px;
+  }
+
+  &-target-box {
+    transition: 0.5s;
+    min-width: 360px;
+    min-height: 244px;
+    position: absolute;
+    border-radius: 5px;
+
+    &-shadow {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
   &-img {
     background-repeat: no-repeat;
     background-size: cover;

@@ -1,4 +1,10 @@
-class SlideBlocks {
+class Slider {
+
+  constructor() {
+    this.autoSlide;
+    this.goSlide();
+  }
+
   rightCard() {
     const cardObj = {
       quanElems : document.querySelectorAll('.portfolio_block').length - 1,
@@ -56,15 +62,6 @@ class SlideBlocks {
     docFrag.appendChild(cardDiv);
     document.querySelector('.portfolio_block').before(docFrag);
   }
-}
-
-class StartSlides extends SlideBlocks{
-
-  constructor() {
-    super();
-    this.autoSlide;
-    this.goSlide();
-  }
 
   slideSide(event) {
     let target = event.target;
@@ -80,26 +77,27 @@ class StartSlides extends SlideBlocks{
     }
   }
 
-  goSlide() {
-    clearTimeout(StartSlides.autoSlide);
+  onMouseButton() {
+    this.goSlide();
+  }
 
-    StartSlides.autoSlide = setTimeout(function oneMoreTime() {
-      startSlide.rightCard();
-      StartSlides.autoSlide = setTimeout(oneMoreTime, 5000)
+  goSlide() {
+    clearTimeout(Slider.autoSlide);
+
+    Slider.autoSlide = setTimeout(function oneMoreTime() {
+      blockUp.rightCard();
+      Slider.autoSlide = setTimeout(oneMoreTime, 5000)
     }, 5000);
   }
 
   stopSlide() {
-    clearTimeout(StartSlides.autoSlide);
-    
-  }
-
-  onMouseButton() {
-    this.goSlide();
+    clearTimeout(Slider.autoSlide);
   }
 }
 
-class BlockUp extends StartSlides{
+///////////////////////////////////////////
+
+class BlockUp extends Slider{
 
   constructor() {
     super();
@@ -107,42 +105,59 @@ class BlockUp extends StartSlides{
   }
 
   blockAddMargin(event) {
-    let target = event.target;
+    const target = event.target;
 
     if(target.classList.value === 'portfolio_block-target-box') {
       target.parentElement.classList.add('portfolio_block-resize');
     }
   }
   blockRemoveMargin(event) {
-    let target = event.target;
+    const target = event.target;
+
+    if(target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
+      target.parentElement.classList.remove('portfolio_block-resize');
+    }
+  }
+
+  blockAddShadow(event) {
+    const target = event.target;
 
     if(target.classList.value === 'portfolio_block-target-box') {
-      target.parentElement.classList.remove('portfolio_block-resize');
+      target.classList.add('portfolio_block-target-box-shadow');
+    }
+  }
+
+  blockRemoveShadow(event) {
+    const target = event.target;
+
+    if(target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
+      target.classList.remove('portfolio_block-target-box-shadow');
     }
   }
 }
 
 const blockUp = new BlockUp();
-const startSlide = new StartSlides();
 
 document.getElementById('portfolioBlock').addEventListener('mouseover', (event) => {
-  let target = event.target;
+  const target = event.target;
 
-    if(target.classList.value === 'portfolio_block-target-box') {
-      startSlide.stopSlide(event);
+    if(target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
+      blockUp.stopSlide(event);
     }
   blockUp.blockAddMargin(event);
+  blockUp.blockAddShadow(event);
 })
 
 document.getElementById('portfolioBlock').addEventListener('mouseout', (event) => {
-  let target = event.target;
+  const target = event.target;
 
-    if(target.classList.value === 'portfolio_block-target-box') {
-      startSlide.goSlide(event);
+    if(target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
+      blockUp.goSlide(event);
     }
   blockUp.blockRemoveMargin(event);
+  blockUp.blockRemoveShadow(event);
 })
 
 document.getElementById('buttonsContainer').addEventListener('click',(event) => {
-  startSlide.slideSide(event);
+  blockUp.slideSide(event);
 });

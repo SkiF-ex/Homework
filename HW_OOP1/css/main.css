@@ -1573,6 +1573,17 @@ hr {
     bottom: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px; }
+  .portfolio_block-resize {
+    transition: 0.5s;
+    margin-top: 40px; }
+  .portfolio_block-target-box {
+    transition: 0.5s;
+    min-width: 360px;
+    min-height: 244px;
+    position: absolute;
+    border-radius: 5px; }
+    .portfolio_block-target-box-shadow {
+      background-color: rgba(0, 0, 0, 0.5); }
   .portfolio_block-img {
     background-repeat: no-repeat;
     background-size: cover;
