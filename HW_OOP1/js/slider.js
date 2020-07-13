@@ -129,7 +129,7 @@ class BlockUp extends Slider{
   }
 }
 
-class AnimateBlock extends Slider {
+class AnimationBlock extends Slider {
   resizeOnClick(target) {
     target.parentElement.setAttribute('style', 'margin-top:30px');
     target.parentElement.querySelector('img').classList.add('portfolio_block-img-resize');
@@ -156,7 +156,7 @@ class AnimateBlock extends Slider {
 }
 
 const blockUp = new BlockUp();
-const animate = new AnimateBlock();
+const animation = new AnimationBlock();
 
 document.getElementById('portfolioBlock').addEventListener('mouseover', (event) => {
   if (blockUp.checkFunc(event) === true) {
@@ -171,16 +171,16 @@ document.getElementById('portfolioBlock').addEventListener('mouseout', (event) =
     blockUp.goSlide();
     blockUp.blockRemoveMargin();
     blockUp.blockRemoveShadow();
-    animate.resizeOnMouseOut(event);
+    animation.resizeOnMouseOut(event);
   }
   event.target.removeAttribute('style', 'background-color: rgba(0, 0, 0, 0)')
 })
 
 document.getElementById('portfolioBlock').addEventListener('click', (event) => {
   const target = event.target;
-  animate.rotateFirst(event);
+  animation.rotateFirst(event);
   if (target.classList.value === 'portfolio_block-target-box portfolio_block-target-box-shadow') {
-    animate.resizeOnClick(target);
+    animation.resizeOnClick(target);
   }
   event.target.setAttribute('style', 'background-color: rgba(0, 0, 0, 0)')
 })
