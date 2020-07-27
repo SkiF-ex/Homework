@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Post</title>
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+<body class="body">
+  <header id="toTop" class="blog_header">
+    <div class="container">
+      <div class="row">
+        <div class="blog_header-container">
+          <div class="blog_header-container-left">
+            <h4 class="blog_header-container-left-header">BlogWorld</h4>
+            <div class="header-content-left-postform-container">
+              <button class="header-content-left-buttons-add" id="addNewPost">Add new post</button>
+              <div id="postform" class="header-content-left-postform header-content-left-postform-none">
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Type of post</h4>
+                  <select class="header-content-left-postform-block-input" id="formType" size="1">
+                    <option>Video</option>
+                    <option>Text</option>
+                    <option>Audio</option>
+                    <option>Image</option>
+                  </select>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Image link</h4>
+                  <input class="header-content-left-postform-block-input" id="formImgSrc" placeholder="img.ua"/>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Title</h4>
+                  <input id="formTitle" class="header-content-left-postform-block-input"/>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Author</h4>
+                  <input class="header-content-left-postform-block-input" id="formAuthor" placeholder="Author name"/>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Date</h4>
+                  <input class="header-content-left-postform-block-input" id="formDate" type="date"/>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Post description</h4>
+                  <textarea class="header-content-left-postform-block-input" id="formDescription" rows="4" cols="25"></textarea>
+                </div>
+                <div class="header-content-left-postform-block">
+                  <h4 class="header-content-left-postform-block-name">Quote</h4>
+                  <input class="header-content-left-postform-block-input" id="formQuote" placeholder="Some quotes"/>
+                </div>
+                <button  disabled="disabled" class="header-content-left-postform-block-create" id="createPost">Create post</button>
+              </div>
+            </div>
+          </div>
+          <div class="blog_header-container-right">
+            <nav class="blog_header-container-right-nav">
+              <ul class="blog_header-container-right-links">
+                <li class="header-content-right-links-box">
+                  <a href="index.html" class="header-content-right-links-link">Home</a>
+                </li>
+                <li class="header-content-right-links-box">
+                  <a class="header-content-right-links-link">Portfolio</a>
+                </li>
+                <li class="header-content-right-links-box">
+                  <a href="blog.html" class="header-content-right-links-link header-content-right-links-link-active">Blog</a>
+                </li>
+                <li class="header-content-right-links-box">
+                  <a href="" class="header-content-right-links-link">Pages</a>
+                </li>
+                <li class="header-content-right-links-box">
+                  <a class="header-content-right-links-link">About</a>
+                </li>
+                <li class="header-content-right-links-box">
+                  <a class="header-content-right-links-link">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="post_main">
+    <div class="post_block">
+      <section class="post_block-article">
+        <h2 class="post_block-article-header" id="postTitle"></h2>
+        <div class="post_block-article-authorblock">
+          <div class="post_block-article-photo"></div>
+          <div class="post_block-article-namedesc">
+            <div class="post_block-article-namedesc-name" id="postAuthor"></div>
+            <div class="post_block-article-namedesc-undername">
+              <div class="post_block-article-namedesc-undername-date post_block-article-namedesc-undername-details" id="postDate"></div>
+              <div class="post_block-article-namedesc-undername-time post_block-article-namedesc-undername-details">12 min read</div>
+              <div class="post_block-article-namedesc-undername-comments post_block-article-namedesc-undername-details">4</div>
+              <div class="post_block-article-namedesc-undername-stars one--star post_block-article-namedesc-undername-details"></div>
+            </div>
+          </div>
+        </div>
+        <div id="imgBlock" class="post_block-article-imgblock">
+          <img class="post_block-article-img" id="postImg"/>
+        </div>
+        <div class="post_block-article-paragraph post_block-article-paragraph-first" id="postDescription"></div>
+        <div class="post_block-article-quote" id="postQuote"></div>
+        <div class="post_block-article-footer">
+          <div class="post_block-article-footer-likes">75 likes</div>
+          <div class="post_block-article-footer_messangers">
+            <ul class="post_block-article-footer_messangers-table">
+              <li class="post_block-article-footer_messangers-table-item">
+                <a href="#" class="post_block-article-footer_messangers-table-item-link post_block-article-footer_messangers-table-item-link-facebook"></a>
+              </li>
+              <li class="footer_messangers-table-item">
+                <a href="#" class="post_block-article-footer_messangers-table-item-link post_block-article-footer_messangers-table-item-link-instagram"></a>
+              </li>
+              <li class="footer_messangers-table-item">
+                <a href="#" class="post_block-article-footer_messangers-table-item-link post_block-article-footer_messangers-table-item-link-dribbble"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="post_block-article-strip"></div>
+        <div id="reviews" class="post_block-article-lessheader post_block-article-review-header">Reviews</div>
+        <div class="post_block-article-review-buttonblock">
+          <button class="post_block-article-review-buttonblock-button">More comments</button>
+        </div>
+      </section>
+      <section class="post_block-menu">
+        <div class="post_block-menu-container post_block-menu-container-posts">
+          <h2 class="post_block-menu-container-lessheader">Latest posts</h2>
+          <div class="post_block-article-strip post_block-menu-strip"></div>
+          <div class="post_block-menu-container-posts-block">
+            <div class="post_block-menu-container-posts-block-img post_block-menu-container-posts-block-img-first"></div>
+            <div class="post_block-menu-container-posts-block-description">
+              <div class="post_block-menu-container-posts-block-description-header">Much cure inappropriate could this restrictions …</div>
+              <div class="post_block-menu-container-posts-block-description-details">
+                <div class="post_block-menu-container-posts-block-description-details-date post_block-menu-container-posts-block-description-details--detail">20 oct, 2019</div>
+                <div class="post_block-menu-container-posts-block-description-details-time post_block-menu-container-posts-block-description-details--detail">10 min read</div>
+                <div class="post_block-menu-container-posts-block-description-details-comments post_block-menu-container-posts-block-description-details--detail">11</div>
+              </div>
+            </div>
+          </div>
+          <div class="post_block-menu-container-posts-block">
+            <div class="post_block-menu-container-posts-block-img post_block-menu-container-posts-block-img-second"></div>
+            <div class="post_block-menu-container-posts-block-description">
+              <div class="post_block-menu-container-posts-block-description-header">Much cure inappropriate could this restrictions …</div>
+              <div class="post_block-menu-container-posts-block-description-details">
+                <div class="post_block-menu-container-posts-block-description-details-date post_block-menu-container-posts-block-description-details--detail">20 oct, 2019</div>
+                <div class="post_block-menu-container-posts-block-description-details-time post_block-menu-container-posts-block-description-details--detail">10 min read</div>
+                <div class="post_block-menu-container-posts-block-description-details-comments post_block-menu-container-posts-block-description-details--detail">11</div>
+              </div>
+            </div>
+          </div>
+          <div class="post_block-menu-container-posts-buttonblock">
+            <button class="post_block-menu-container-posts-buttonblock-button">More posts</button>
+          </div>
+        </div>
+        <div class="post_block-menu-container post_block-menu-container-categories">
+          <div class="post_block-menu-container-lessheader">Categories</div>
+          <div class="post_block-article-strip post_block-menu-strip"></div>
+          <input type="checkbox" class="post_block-menu-container-categories-radio" name="categories" id="category1"/>
+          <label class="post_block-menu-container-categories-categorie post_block-menu-container-categories-categorie-first" for="category1">Restaurant food (3)</label>
+          <ul class="post_block-menu-container-categories-list">
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Food</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Food</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Food</a>
+            </li>
+          </ul>
+          <div class="post_block-article-strip post_block-menu-strip"></div>
+          <input type="checkbox" class="post_block-menu-container-categories-radio" name="categories" id="category2" checked="checked"/>
+          <label class="post_block-menu-container-categories-categorie post_block-menu-container-categories-categorie-second" for="category2">Travel news (3)</label>
+          <ul class="post_block-menu-container-categories-list">
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Hiking</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Bicycle trip</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Mountains trip</a>
+            </li>
+          </ul>
+          <div class="post_block-article-strip post_block-menu-strip"></div>
+          <input type="checkbox" class="post_block-menu-container-categories-radio" name="categories" id="category3"/>
+          <label class="post_block-menu-container-categories-categorie post_block-menu-container-categories-categorie-third" for="category3">Modern technology (6)</label>
+          <ul class="post_block-menu-container-categories-list">
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Modern</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Modern</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Modern</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Modern</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Modern</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Modern</a>
+            </li>
+          </ul>
+          <div class="post_block-article-strip post_block-menu-strip"></div>
+          <input type="checkbox" class="post_block-menu-container-categories-radio" name="categories" id="category4"/>
+          <label class="post_block-menu-container-categories-categorie post_block-menu-container-categories-categorie-fourth" for="category4">Product (4)</label>
+          <ul class="post_block-menu-container-categories-list">
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Product</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Product</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Product</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Product</a>
+            </li>
+          </ul>
+          <div class="post_block-article-strip post_block-menu-strip"></div>
+          <input type="checkbox" class="post_block-menu-container-categories-radio" name="categories" id="category5"/>
+          <label class="post_block-menu-container-categories-categorie post_block-menu-container-categories-categorie-fourth" for="category5">Inspiration (2)</label>
+          <ul class="post_block-menu-container-categories-list">
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Inspiration</a>
+            </li>
+            <li class="post_block-menu-container-categories-list-item">
+              <a href="#" class="post_block-menu-container-categories-list-item-link">Inspiration</a>
+            </li>
+          </ul>
+          <div class="post_block-article-strip post_block-menu-strip post_block-menu-strip-last"></div>
+        </div>
+        <div class="post_block-menu-container post_block-menu-container-tags">
+          <div class="post_block-menu-container-lessheader">Tags</div>
+          <div class="post_block-article-strip post_block-menu-container-tags-strip post_block-menu-strip"></div>
+          <div class="post_block-menu-container-tags-buttons">
+            <button class="post_block-menu-container-tags-buttons-button">Love</button>
+            <button class="post_block-menu-container-tags-buttons-button">Signs</button>
+            <button class="post_block-menu-container-tags-buttons-button">Waterfall</button>
+            <button class="post_block-menu-container-tags-buttons-button">Inspiration</button>
+            <button class="post_block-menu-container-tags-buttons-button">Quotes</button>
+            <button class="post_block-menu-container-tags-buttons-button">Sea</button>
+            <button class="post_block-menu-container-tags-buttons-button">Sense</button>
+            <button class="post_block-menu-container-tags-buttons-button">Coffee</button>
+            <button class="post_block-menu-container-tags-buttons-button">Gold</button>
+            <button class="post_block-menu-container-tags-buttons-button">Images</button>
+            <button class="post_block-menu-container-tags-buttons-button">Courage</button>
+            <button class="post_block-menu-container-tags-buttons-button">Dancing</button>
+            <button class="post_block-menu-container-tags-buttons-button">Video</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <a href="#toTop" class="scroll-to-top"></a>
+  </main>
+  <footer class="footer blog_footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer_container">
+          <div class="footer_messangers">
+            <ul class="footer_messangers-table">
+              <li class="footer_messangers-table-item">
+                <a href="#" class="footer_messangers-table-item-link footer_messangers-table-item-link-facebook"></a>
+              </li>
+              <li class="footer_messangers-table-item">
+                <a href="#" class="footer_messangers-table-item-link footer_messangers-table-item-link-instagram"></a>
+              </li>
+              <li class="footer_messangers-table-item">
+                <a href="#" class="footer_messangers-table-item-link footer_messangers-table-item-link-dribbble"></a>
+              </li>
+            </ul>
+          </div>
+          <h4 class="footer_blogW">BlogWorld</h4>
+          <p class="footer_all-rights">©2019 All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/post.js"></script>
+  <script src="./js/form.js"></script>
+</body>
+</html>
