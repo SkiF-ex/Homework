@@ -144,7 +144,7 @@ const objTitleValidation = {
   },
 
   validationTitleLength : () => {
-    if (document.getElementById('formTitle').value.length > 2 && document.getElementById('formTitle').value.length < 21){
+    if (document.getElementById('formTitle').value.length > 2 && document.getElementById('formTitle').value.length < 20){
       this.boolean = true;
     } else {
       return this.boolean = false;
