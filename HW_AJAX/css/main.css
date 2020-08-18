@@ -891,45 +891,66 @@ hr {
         display: none; }
       .header-content-left-postform-container {
         position: relative; }
-      .header-content-left-postform-block-create {
-        color: #4d4c49;
-        font-family: "Hind Siliguri", sans-serif;
-        font-size: 15px;
-        line-height: 25px;
-        border: none;
-        color: #fff;
-        height: 45px;
-        width: 200px;
-        border-radius: 5px;
-        background-color: #4d4c49;
-        margin: 20px 0;
-        outline: none; }
-      .header-content-left-postform-block-input {
-        color: #4d4c49;
-        font-family: "Hind Siliguri", sans-serif;
-        font-size: 17px;
-        line-height: 28px;
-        width: 300px;
-        margin-left: 5px;
-        border-radius: 5px;
-        outline: none;
-        border: 1px solid #828282;
-        color: #4d4c49;
-        font-size: 20px;
-        padding-left: 5px; }
-        .header-content-left-postform-block-input-good {
-          border-color: green; }
-        .header-content-left-postform-block-input-bad {
-          border-color: red; }
-      .header-content-left-postform-block-name {
-        color: #4d4c49;
-        font-family: "Hind Siliguri", sans-serif;
-        font-size: 17px;
-        line-height: 28px;
-        font-weight: bold;
-        letter-spacing: 0.25px;
-        margin-left: 5px;
-        margin-top: 20px; }
+      .header-content-left-postform-block {
+        position: relative; }
+        .header-content-left-postform-block-container {
+          transition: 0.4s;
+          height: 88px;
+          width: 340px;
+          background-color: rgba(255, 255, 255, 0.5);
+          border-radius: 5px;
+          z-index: 10;
+          position: absolute;
+          right: -354px;
+          top: 18px;
+          border: 1px solid red; }
+          .header-content-left-postform-block-container-none {
+            display: none; }
+          .header-content-left-postform-block-container-message {
+            margin: 10px 0 10px 0; }
+        .header-content-left-postform-block-create {
+          color: #4d4c49;
+          font-family: "Hind Siliguri", sans-serif;
+          font-size: 15px;
+          line-height: 25px;
+          border: none;
+          color: #fff;
+          height: 45px;
+          width: 200px;
+          border-radius: 5px;
+          background-color: #4d4c49;
+          margin: 20px 0;
+          outline: none; }
+          .header-content-left-postform-block-create:hover {
+            background-color: #393737;
+            color: #fff; }
+        .header-content-left-postform-block-input {
+          color: #4d4c49;
+          font-family: "Hind Siliguri", sans-serif;
+          font-size: 17px;
+          line-height: 28px;
+          width: 300px;
+          margin-left: 5px;
+          border-radius: 5px;
+          outline: none;
+          border: 1px solid #828282;
+          color: #4d4c49;
+          font-size: 20px;
+          padding-left: 5px;
+          resize: none; }
+          .header-content-left-postform-block-input-good {
+            border-color: green; }
+          .header-content-left-postform-block-input-bad {
+            border-color: red; }
+        .header-content-left-postform-block-name {
+          color: #4d4c49;
+          font-family: "Hind Siliguri", sans-serif;
+          font-size: 17px;
+          line-height: 28px;
+          font-weight: bold;
+          letter-spacing: 0.25px;
+          margin-left: 5px;
+          margin-top: 20px; }
     .header-content-left-container {
       display: flex;
       justify-content: space-between; }
@@ -976,6 +997,9 @@ hr {
         border-radius: 5px;
         background-color: #4d4c49;
         outline: none; }
+        .header-content-left-buttons-add:hover {
+          background-color: #393737;
+          color: #fff; }
       .header-content-left-buttons-first {
         color: #4d4c49;
         font-family: "Hind Siliguri", sans-serif;

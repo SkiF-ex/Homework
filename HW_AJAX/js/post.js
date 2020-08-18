@@ -27,7 +27,7 @@ const ifAudioType = (data) => {
   if (data.type === 'Audio') {
     const docFrag = document.createDocumentFragment();
     const element = document.createElement('audio');
-    element.setAttribute('src', '../HW_Task/img/audio.mp3');
+    element.setAttribute('src', './img/audio.mp3');
     element.setAttribute('controls', 'controls');
     element.setAttribute('class', 'blog_section-block-content-audio')
 
