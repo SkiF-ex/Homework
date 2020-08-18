@@ -908,6 +908,10 @@ hr {
             display: none; }
           .header-content-left-postform-block-container-message {
             margin: 10px 0 10px 0; }
+            .header-content-left-postform-block-container-message-wrong {
+              color: red; }
+            .header-content-left-postform-block-container-message-correct {
+              color: #2bdf2b; }
         .header-content-left-postform-block-create {
           color: #4d4c49;
           font-family: "Hind Siliguri", sans-serif;

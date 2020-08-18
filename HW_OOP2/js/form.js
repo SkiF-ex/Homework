@@ -17,30 +17,26 @@ const objForm = {
     event = event.target;
 
     if (event.id === 'addNewPost') {
-      this.formOpener();
-      return;
+      if (document.querySelector('.header-content-left-postform-container').childNodes.length === 2) {
+        this.closeForm();
+        return;
+      } else { 
+          this.openForm();
+        }
     }
 
     if (event.classList.contains('header-content-left-postform-block') 
-    || event.parentNode.classList.contains('header-content-left-postform-block') 
-    || event.classList.contains('header-content-left-postform')
-    || event.classList.contains('header-content-left-postform-block-create')) {
+      || event.parentNode.classList.contains('header-content-left-postform-block') 
+      || event.classList.contains('header-content-left-postform')
+      || event.classList.contains('header-content-left-postform-block-create')) {
       return;
     }
 
-    if (document.querySelector('.header-content-left-postform-container').childNodes.length === 1){
+    if (document.querySelector('.header-content-left-postform-container').childNodes.length === 1) {
       return;
     } else {
-      this.closeForm();
-    }
-  },
-
-  formOpener(){
-    if (document.querySelector('.header-content-left-postform-container').childNodes.length === 2){
-    this.closeForm();
-    } else {
-      this.openForm()
-    }
+        this.closeForm();
+      }
   },
 
   closeForm() {
@@ -59,12 +55,16 @@ const getForm = async () => {
     objForm.createForm(data);
 
     document.getElementById('formTitle').addEventListener('blur', function(){
-      objTitleValidation.validationFirstUpperLetter();
+      objTitleValidation.isFirstLetterUpper();
+      objTitleValidation.isTitleLengthValid();
+      objTitleValidation.isCorrectCharacters();
       objTitleValidation.styleChanger();
     });
 
     document.getElementById('formTitle').oninput = function(){
-      objTitleValidation.validationFirstUpperLetter();
+      objTitleValidation.isFirstLetterUpper();
+      objTitleValidation.isCorrectCharacters();
+      objTitleValidation.isTitleLengthValid();
       objTitleValidation.styleChanger();
     };
 
@@ -98,7 +98,7 @@ const getAllPostsForId = async () => {
   try {
     const respone = await fetch('http://localhost:3000/api/list');
     const data = await respone.json();
-    let identifier = data[data.length - 1].id + 1;
+    const identifier = data[data.length - 1].id + 1;
 
     let collectData = {
       id: identifier,
@@ -116,44 +116,65 @@ const getAllPostsForId = async () => {
     console.error(error);
   }
 };
-
+let a;
 const objTitleValidation = {
-  str : document.getElementById('formTitle'),
-  boolean : false,
+  ruleCheckBox : [false, false, false],
 
-  validationCorrectCharacters : (elem) => elem.split('').map((num) => num.match(/[a-zA-Z0-9!,.?: -]/)),
+  ruleColorWrong : (rule) => {
+    document.getElementById(rule).classList.remove('header-content-left-postform-block-container-message-correct');
+    document.getElementById(rule).classList.add('header-content-left-postform-block-container-message-wrong');
+  },
 
-  validationCharactersConfirmation : () => {
+  ruleColorCorrect : (rule) => {
+    document.getElementById(rule).classList.remove('header-content-left-postform-block-container-message-wrong');
+    document.getElementById(rule).classList.add('header-content-left-postform-block-container-message-correct');
+  },
+
+  validationCorrectCharacters : (inputString) => inputString.split('').map((num) => num.match(/[a-zA-Z0-9!,.?: -]/)),
+
+  isCorrectCharacters : () => {
+    const charactersRule = 'wrongCharacters'
+
     for (let i = 0; i < document.getElementById('formTitle').value.length; i++) {
       if (objTitleValidation.validationCorrectCharacters(document.getElementById('formTitle').value)[i] === null) {
-        this.boolean = false;
+        objTitleValidation.ruleCheckBox.splice(0, 1, false);
+        objTitleValidation.ruleColorWrong(charactersRule);
         break;
       } else {
-        this.boolean = true;
+        objTitleValidation.ruleColorCorrect(charactersRule);
+        objTitleValidation.ruleCheckBox.splice(0, 1, true);
       }
     }
   },
 
-  validationFirstUpperLetter : () => {
+  isFirstLetterUpper : () => {
+    const firstLetterRule = 'wrongFirstLetter'
+
     if(/[A-Z]/.test(document.getElementById('formTitle').value.split('')[0])) {
-      this.boolean = true;
+      objTitleValidation.ruleCheckBox.splice(1, 1, true);
+      objTitleValidation.ruleColorCorrect(firstLetterRule);
     } else {
-      return this.boolean = false;
+      objTitleValidation.ruleColorWrong(firstLetterRule);
+      objTitleValidation.ruleCheckBox.splice(1, 1, false);
+      return;
     }
-    objTitleValidation.validationTitleLength();
   },
 
-  validationTitleLength : () => {
+  isTitleLengthValid : () => {
+    const lengthRule = 'wrongLength'
+
     if (document.getElementById('formTitle').value.length > 2 && document.getElementById('formTitle').value.length < 20){
-      this.boolean = true;
+      objTitleValidation.ruleCheckBox.splice(2, 1, true);
+      objTitleValidation.ruleColorCorrect(lengthRule);
     } else {
-      return this.boolean = false;
+      objTitleValidation.ruleColorWrong(lengthRule);
+      objTitleValidation.ruleCheckBox.splice(2, 1, false);
+      return;
     }   
-    objTitleValidation.validationCharactersConfirmation();
   },
 
   styleChanger : () => {
-    if (this.boolean === true) {
+    if (objTitleValidation.ruleCheckBox[0] === true && objTitleValidation.ruleCheckBox[1] === true && objTitleValidation.ruleCheckBox[2] === true) {
       document.getElementById('formTitle').classList.remove('header-content-left-postform-block-input-bad');
       document.getElementById('createPost').removeAttribute('disabled', 'disabled')
       document.getElementById('messageBox').classList.add('header-content-left-postform-block-container-none');

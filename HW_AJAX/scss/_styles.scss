@@ -111,6 +111,14 @@
 
           &-message {
             margin: 10px 0 10px 0;
+
+            &-wrong {
+              color: $red;
+            }
+
+            &-correct {
+              color: rgb(43, 223, 43);
+            }
           }
         }
 
@@ -125,11 +133,6 @@
           background-color: $main-color;
           margin: 20px 0;
           outline: none;
-
-          &:hover {
-            background-color: $mine-shaft;
-            color: $white;
-          }
         }
 
         &-input {
@@ -143,7 +146,6 @@
           color: $main-color;
           font-size: 20px;
           padding-left: 5px;
-          resize: none;
 
           &-good {
             border-color: $green;
@@ -212,11 +214,6 @@
         border-radius: 5px;
         background-color: $main-color;
         outline: none;
-
-        &:hover {
-          background-color: $mine-shaft;
-          color: $white;
-        }
       }
 
       &-first {
@@ -661,12 +658,55 @@
 .portfolio_block {
   @include edit-bootstrap(4, 4, 4, 12);
 
+  user-select: none;
+  min-width: 360px;
   border-radius: 5px;
   margin: 60px 20px 0 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: 1s;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 244px;
+  width: 360px;
+
+  @include portfoliohover;
+
+  &-target-box {
+    transition: 0.5s;
+    min-width: 360px;
+    min-height: 244px;
+    position: absolute;
+    border-radius: 5px;
+    z-index: 5;
+
+    &-shadow {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 244px;
+    width: 360px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 5px;
+    transition: 0.5s;
+
+    &-resize {
+      z-index: 2;
+      height: 294px;
+      width: 410px;
+    }
+
+    &-rotateFirst {
+      transform: rotate(180deg);
+    }
+  }
 
   &-header {
     @include header3;
@@ -684,39 +724,9 @@
     font-weight: 300;
   }
 
-  &-left {
-    background-image: url(../img/card-ocean.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 244px;
-    width: 360px;
-
-    @include portfoliohover;
-  }
-
-  &-center {
-    background-image: url(../img/card-city.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 244px;
-    width: 360px;
-
-    @include portfoliohover;
-  }
-
-  &-right {
-    background-image: url(../img/card-mountains.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 246px;
-    width: 366px;
-    margin-right: 0;
-    position: relative;
-
-    @include portfoliohover;
-  }
-
   &-all {
+    overflow: hidden;
+
     @media all and (max-width: $mob-sm) {
       display: flex;
       flex-direction: column;
@@ -758,6 +768,7 @@
     border: 1px solid $main-color;
     border-radius: 5px;
     transform: rotate(90deg);
+    outline: none;
 
     &:hover {
       background-color: $white;
@@ -813,6 +824,7 @@
   margin: 0 auto;
   background-size: cover;
   margin-top: 60px;
+  user-select: none;
 
   @media (max-width: $mob-sm) {
     width: 100%;
@@ -826,7 +838,13 @@
     width: 100%;
   }
 
+  &-block {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &-buttons {
+    z-index: 1;
     height: 45px;
     width: 45px;
     background-image: url(../img/arrow.svg);
@@ -837,6 +855,7 @@
     border-radius: 5px;
     transform: rotate(90deg);
     position: relative;
+    outline: none;
     top: 165px;
 
     &:hover {
@@ -847,7 +866,7 @@
     &-left {
       margin-right: 30px;
       float: left;
-      left: 20.4%;
+      left: 11.4%;
 
       @media all and (max-width: $mob-md) {
         left: 57.6%;
@@ -865,7 +884,7 @@
     &-right {
       transform: rotate(-90deg);
       float: right;
-      right: 20.5%;
+      right: 10.5%;
       margin-left: 30px;
 
       @media all and (max-width: $mob-md) {
@@ -879,7 +898,7 @@
       }
 
       @media all and (min-width: $mob-md) {
-        right: 20.5%;
+        right: 10.5%;
       }
     }
   }
@@ -888,10 +907,9 @@
     @include edit-bootstrap(6, 6, 6, 12);
 
     display: flex;
-    justify-content: center;
     margin-top: 54.5px;
-    margin-left: 18.8%;
     position: relative;
+    overflow: hidden;
 
     @media (max-width: $mob-sm) {
       margin-left: auto;
@@ -903,25 +921,31 @@
       width: 100%;
     }
 
-    &::before {
-      display: block;
-      content: "";
-      position: absolute;
-      height: 265px;
-      width: 560px;
-      box-shadow: 0 8px 25px 0 #6d6d6d80;
-      border-radius: 5px;
+    &-box {
+      display: flex;
+      transition: 1s;
+      padding-right: 40px;
 
-      @media (max-width: $mob-sm) {
-        display: none;
-      }
+      &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        height: 265px;
+        width: 560px;
+        box-shadow: 0 8px 25px 0 #6d6d6d80;
+        border-radius: 5px;
 
-      @media (max-width: $desk-lg) {
-        display: none;
-      }
+        @media (max-width: $mob-sm) {
+          display: none;
+        }
 
-      @media (max-width: $mob-sm) {
-        display: none;
+        @media (max-width: $desk-lg) {
+          display: none;
+        }
+
+        @media (max-width: $mob-sm) {
+          display: none;
+        }
       }
     }
 
@@ -1894,7 +1918,7 @@
         &-fullblock {
           width: 1033px;
 
-          @media (max-width: $desk-lg) {
+          @media (max-width: $desk-sm) {
             width: 100%;
           }
         }
@@ -2051,6 +2075,11 @@
       flex-direction: column;
     }
 
+    &-imgblock {
+      margin-top: 20px;
+      position: relative;
+    }
+
     &-header {
       @include header1;
 
@@ -2143,9 +2172,8 @@
     }
 
     &-img {
-      background-image: url(../img/post-page/post-img.png);
       background-size: cover;
-      margin-top: 20px;
+      width: 98%;
 
       @media (max-width: $desk-md) {
         width: 100%;

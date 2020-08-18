@@ -111,6 +111,14 @@
 
           &-message {
             margin: 10px 0 10px 0;
+
+            &-wrong {
+              color: $red;
+            }
+
+            &-correct {
+              color: rgb(43, 223, 43);
+            }
           }
         }
 

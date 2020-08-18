@@ -908,6 +908,10 @@ hr {
             display: none; }
           .header-content-left-postform-block-container-message {
             margin: 10px 0 10px 0; }
+            .header-content-left-postform-block-container-message-wrong {
+              color: red; }
+            .header-content-left-postform-block-container-message-correct {
+              color: #2bdf2b; }
         .header-content-left-postform-block-create {
           color: #4d4c49;
           font-family: "Hind Siliguri", sans-serif;
@@ -921,9 +925,6 @@ hr {
           background-color: #4d4c49;
           margin: 20px 0;
           outline: none; }
-          .header-content-left-postform-block-create:hover {
-            background-color: #393737;
-            color: #fff; }
         .header-content-left-postform-block-input {
           color: #4d4c49;
           font-family: "Hind Siliguri", sans-serif;
@@ -936,8 +937,7 @@ hr {
           border: 1px solid #828282;
           color: #4d4c49;
           font-size: 20px;
-          padding-left: 5px;
-          resize: none; }
+          padding-left: 5px; }
           .header-content-left-postform-block-input-good {
             border-color: green; }
           .header-content-left-postform-block-input-bad {
@@ -997,9 +997,6 @@ hr {
         border-radius: 5px;
         background-color: #4d4c49;
         outline: none; }
-        .header-content-left-buttons-add:hover {
-          background-color: #393737;
-          color: #fff; }
       .header-content-left-buttons-first {
         color: #4d4c49;
         font-family: "Hind Siliguri", sans-serif;
@@ -1547,12 +1544,19 @@ hr {
   min-height: 1px;
   padding-right: 20px;
   padding-left: 20px;
+  user-select: none;
+  min-width: 360px;
   border-radius: 5px;
   margin: 60px 20px 0 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center; }
+  text-align: center;
+  transition: 1s;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 244px;
+  width: 360px; }
   @media (min-width: 768px) {
     .portfolio_block {
       float: left;
@@ -1565,6 +1569,56 @@ hr {
     .portfolio_block {
       float: left;
       width: 33.3333333333%; } }
+  .portfolio_block:hover::before {
+    content: '';
+    height: 60px;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(../img/icon-attach.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .portfolio_block:hover::after {
+    content: '';
+    height: 60px;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(../img/icon-search.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  .portfolio_block-target-box {
+    transition: 0.5s;
+    min-width: 360px;
+    min-height: 244px;
+    position: absolute;
+    border-radius: 5px;
+    z-index: 5; }
+    .portfolio_block-target-box-shadow {
+      background-color: rgba(0, 0, 0, 0.5); }
+  .portfolio_block-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 244px;
+    width: 360px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 5px;
+    transition: 0.5s; }
+    .portfolio_block-img-resize {
+      z-index: 2;
+      height: 294px;
+      width: 410px; }
+    .portfolio_block-img-rotateFirst {
+      transform: rotate(180deg); }
   .portfolio_block-header {
     color: #4d4c49;
     font-family: "Hind Siliguri", sans-serif;
@@ -1582,115 +1636,19 @@ hr {
     line-height: 25px;
     color: #fff;
     font-weight: 300; }
-  .portfolio_block-left {
-    background-image: url(../img/card-ocean.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 244px;
-    width: 360px; }
-    .portfolio_block-left:hover::before {
-      content: '';
-      height: 60px;
-      width: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
-      background-image: url(../img/icon-attach.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      position: absolute;
-      right: 50px;
-      bottom: 0;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px; }
-    .portfolio_block-left:hover::after {
-      content: '';
-      height: 60px;
-      width: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
-      background-image: url(../img/icon-search.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px; }
-  .portfolio_block-center {
-    background-image: url(../img/card-city.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 244px;
-    width: 360px; }
-    .portfolio_block-center:hover::before {
-      content: '';
-      height: 60px;
-      width: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
-      background-image: url(../img/icon-attach.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      position: absolute;
-      right: 50px;
-      bottom: 0;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px; }
-    .portfolio_block-center:hover::after {
-      content: '';
-      height: 60px;
-      width: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
-      background-image: url(../img/icon-search.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px; }
-  .portfolio_block-right {
-    background-image: url(../img/card-mountains.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 246px;
-    width: 366px;
-    margin-right: 0;
-    position: relative; }
-    .portfolio_block-right:hover::before {
-      content: '';
-      height: 60px;
-      width: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
-      background-image: url(../img/icon-attach.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      position: absolute;
-      right: 50px;
-      bottom: 0;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px; }
-    .portfolio_block-right:hover::after {
-      content: '';
-      height: 60px;
-      width: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
-      background-image: url(../img/icon-search.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px; }
-  @media all and (max-width: 768px) {
-    .portfolio_block-all {
-      display: flex;
-      flex-direction: column;
-      align-items: center; } }
-  @media all and (max-width: 1024px) {
-    .portfolio_block-all {
-      display: flex; } }
-  @media all and (min-width: 1024px) {
-    .portfolio_block-all {
-      display: flex; } }
+  .portfolio_block-all {
+    overflow: hidden; }
+    @media all and (max-width: 768px) {
+      .portfolio_block-all {
+        display: flex;
+        flex-direction: column;
+        align-items: center; } }
+    @media all and (max-width: 1024px) {
+      .portfolio_block-all {
+        display: flex; } }
+    @media all and (min-width: 1024px) {
+      .portfolio_block-all {
+        display: flex; } }
 
 .buttons_section-container {
   width: 360px;
@@ -1712,7 +1670,8 @@ hr {
     background-position: center;
     border: 1px solid #4d4c49;
     border-radius: 5px;
-    transform: rotate(90deg); }
+    transform: rotate(90deg);
+    outline: none; }
     .buttons_section-container-button:hover {
       background-color: #fff;
       box-shadow: 3px 0 10px 0 #6d6d6d; }
@@ -1770,7 +1729,8 @@ hr {
   width: 1440px;
   margin: 0 auto;
   background-size: cover;
-  margin-top: 60px; }
+  margin-top: 60px;
+  user-select: none; }
   @media (max-width: 768px) {
     .section-testimonials {
       width: 100%; } }
@@ -1780,7 +1740,11 @@ hr {
   @media (max-width: 1024px) {
     .section-testimonials {
       width: 100%; } }
+  .section-testimonials-block {
+    display: flex;
+    justify-content: space-between; }
   .section-testimonials-buttons {
+    z-index: 1;
     height: 45px;
     width: 45px;
     background-image: url(../img/arrow.svg);
@@ -1791,6 +1755,7 @@ hr {
     border-radius: 5px;
     transform: rotate(90deg);
     position: relative;
+    outline: none;
     top: 165px; }
     .section-testimonials-buttons:hover {
       background-color: #fff;
@@ -1798,7 +1763,7 @@ hr {
     .section-testimonials-buttons-left {
       margin-right: 30px;
       float: left;
-      left: 20.4%; }
+      left: 11.4%; }
       @media all and (max-width: 1024px) {
         .section-testimonials-buttons-left {
           left: 57.6%;
@@ -1812,7 +1777,7 @@ hr {
     .section-testimonials-buttons-right {
       transform: rotate(-90deg);
       float: right;
-      right: 20.5%;
+      right: 10.5%;
       margin-left: 30px; }
       @media all and (max-width: 1024px) {
         .section-testimonials-buttons-right {
@@ -1824,7 +1789,7 @@ hr {
           top: -53px; } }
       @media all and (min-width: 1024px) {
         .section-testimonials-buttons-right {
-          right: 20.5%; } }
+          right: 10.5%; } }
   .section-testimonials-container {
     position: relative;
     float: left;
@@ -1845,10 +1810,9 @@ hr {
     padding-right: 20px;
     padding-left: 20px;
     display: flex;
-    justify-content: center;
     margin-top: 54.5px;
-    margin-left: 18.8%;
-    position: relative; }
+    position: relative;
+    overflow: hidden; }
     @media (min-width: 768px) {
       .section-testimonials-container {
         float: left;
@@ -1869,23 +1833,27 @@ hr {
       .section-testimonials-container {
         margin-left: auto;
         width: 100%; } }
-    .section-testimonials-container::before {
-      display: block;
-      content: "";
-      position: absolute;
-      height: 265px;
-      width: 560px;
-      box-shadow: 0 8px 25px 0 #6d6d6d80;
-      border-radius: 5px; }
-      @media (max-width: 768px) {
-        .section-testimonials-container::before {
-          display: none; } }
-      @media (max-width: 1450px) {
-        .section-testimonials-container::before {
-          display: none; } }
-      @media (max-width: 768px) {
-        .section-testimonials-container::before {
-          display: none; } }
+    .section-testimonials-container-box {
+      display: flex;
+      transition: 1s;
+      padding-right: 40px; }
+      .section-testimonials-container-box::before {
+        display: block;
+        content: "";
+        position: absolute;
+        height: 265px;
+        width: 560px;
+        box-shadow: 0 8px 25px 0 #6d6d6d80;
+        border-radius: 5px; }
+        @media (max-width: 768px) {
+          .section-testimonials-container-box::before {
+            display: none; } }
+        @media (max-width: 1450px) {
+          .section-testimonials-container-box::before {
+            display: none; } }
+        @media (max-width: 768px) {
+          .section-testimonials-container-box::before {
+            display: none; } }
     .section-testimonials-container-text {
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -3009,7 +2977,7 @@ hr {
         margin-top: 0; }
       .blog_section-block-content-description-fullblock {
         width: 1033px; }
-        @media (max-width: 1450px) {
+        @media (max-width: 769px) {
           .blog_section-block-content-description-fullblock {
             width: 100%; } }
     .blog_section-block-content-button {
@@ -3148,6 +3116,9 @@ hr {
       display: flex;
       align-items: center;
       flex-direction: column; } }
+  .post_block-article-imgblock {
+    margin-top: 20px;
+    position: relative; }
   .post_block-article-header {
     color: #4d4c49;
     font-family: "Hind Siliguri", sans-serif;
@@ -3222,9 +3193,8 @@ hr {
         .post_block-article-namedesc-undername-time::before {
           left: -14px; }
   .post_block-article-img {
-    background-image: url(../img/post-page/post-img.png);
     background-size: cover;
-    margin-top: 20px; }
+    width: 98%; }
     @media (max-width: 1025px) {
       .post_block-article-img {
         width: 100%;
