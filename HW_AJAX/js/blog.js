@@ -124,12 +124,27 @@ class Post {
   }
 
   ifFunc(post) {
-    if (post.author === 'Sarah Healy') {
-      return `Fog down the river, where it rolls deified among the tiers of 
-      shipping and the waterside pollutions of a great (and dirty)...`;
-    } else {
-      return post.description;
+    let limiter = 200;
+    let postDescription = post.description;
+    let descriptionArray = postDescription.split('');
+    let readyDescription;
+
+    if (post.type === 'Audio') {
+      limiter = 123;
+    } 
+
+    if (post.type === 'Text') {
+      limiter = 540;
+    } 
+
+    if (descriptionArray.length < limiter) {
+      return postDescription;
     }
+
+    descriptionArray.splice(limiter);
+    readyDescription = descriptionArray.join('')+'...';    
+
+    return readyDescription;
   }
 
   firstPost(data, post) {
