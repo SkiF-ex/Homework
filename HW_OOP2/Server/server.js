@@ -16,6 +16,7 @@ const fs = require('fs');
 
 let list;
 let listComments;
+let htmlCode;
 
 fs.readFile('./config/articles.json', 'utf8', function (err,data) {
     if (err) {
@@ -31,6 +32,14 @@ fs.readFile('./config/comments.json', 'utf8', function (err, data) {
     }
     listComments = data;
     listComments = JSON.parse(listComments); 
+})
+
+fs.readFile('./config/formHtml.json', 'utf8', function (err, data) {
+    if (err) {
+        return console.log(err);
+    }
+    htmlCode = data;
+    htmlCode = JSON.parse(htmlCode); 
 })
 // const apiConfig = require(ABSPATH + '/api');
 // app.use ->  this is middleware
@@ -53,6 +62,11 @@ app.get('/api/list', function(req, res) {
 app.get('/api/listComments', function(req, res) {
     log.info('==Get all list comments==');
     res.end(JSON.stringify(listComments));
+});
+
+app.get('/api/htmlCode', function(req, res) {
+    log.info('==Get html code==');
+    res.end(JSON.stringify(htmlCode));
 });
 
 app.get('/api/list/:id', function(req, res) {
