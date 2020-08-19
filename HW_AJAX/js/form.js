@@ -13,7 +13,7 @@ const objForm = {
     document.getElementById('addNewPost').after(docFrag);
   },
 
-  clickNear(event) {
+  outOfFormClick(event) {
     event = event.target;
 
     if (event.id === 'addNewPost') {
@@ -116,7 +116,7 @@ const getAllPostsForId = async () => {
     console.error(error);
   }
 };
-let a;
+
 const objTitleValidation = {
   ruleCheckBox : [false, false, false],
 
@@ -193,5 +193,5 @@ document.addEventListener('keyup', (event) => {
 })
 
 document.addEventListener('mousedown', (event) => {
-  objForm.clickNear(event);
+  objForm.outOfFormClick(event);
 });

@@ -34,8 +34,8 @@ const ifAudioType = (data) => {
     docFrag.appendChild(element);
     document.getElementById('postImg').after(docFrag);
   } else {
-    return;
-  }
+      return;
+    }
 }
 
 const renderReviews = (data) => {
@@ -96,7 +96,7 @@ const renderReviews = (data) => {
 
 const renderPost = (data) => {
   ifAudioType(data);
-  if (data.imgLink != 'null') {
+  if (data.imgLink !== 'null') {
     document.getElementById('postImg').setAttribute('src',data.imgLink);
   }
   document.getElementById('postTitle').innerHTML = data.title;

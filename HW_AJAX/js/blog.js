@@ -10,9 +10,9 @@ class Post {
     .then((data) => {
       checkPostType.postType(data);
     })
-      .catch((error) => {
-        console.dir(error);
-      })
+    .catch((error) => {
+      console.dir(error);
+    })
   }
 
   render(data) {
@@ -63,67 +63,71 @@ class Post {
       blogTitleElement.innerHTML = post.title;
       blogDescriptionsElement.setAttribute('class', 'blog_section-block-content-description');
       blogDescriptionsElement.classList.add('blog_section-block-content-description-fullblock');
-      blogDescriptionsElement.innerHTML = this.ifFunc(post);
+      blogDescriptionsElement.innerHTML = this.characterLimit(post);
       buttonElement.setAttribute('id', post.id);
       buttonElement.setAttribute('class', 'blog_section-block-content-button');
       buttonElement.innerHTML = 'Read more';
 
       firstElement
-      .appendChild(secondElement)
-      .appendChild(blogSectionElement)
-      .appendChild(blogSectionContentElement)
-      .appendChild(blogContentAuthorElement)
-      .after(blogTitleElement);
+        .appendChild(secondElement)
+        .appendChild(blogSectionElement)
+        .appendChild(blogSectionContentElement)
+        .appendChild(blogContentAuthorElement)
+        .after(blogTitleElement);
 
       blogSectionContentElement
-      .appendChild(blogDescriptionsElement)
-      .after(buttonElement);
+        .appendChild(blogDescriptionsElement)
+        .after(buttonElement);
       
       blogContentAuthorElement
-      .appendChild(blogAuthorImgElement)
-      .after(blogAuthornemedescElement);
+        .appendChild(blogAuthorImgElement)
+        .after(blogAuthornemedescElement);
 
       blogAuthornemedescElement
-      .appendChild(blogAuthorNameElement)
-      .after(blogUndernameElement);
+        .appendChild(blogAuthorNameElement)
+        .after(blogUndernameElement);
 
       blogUndernameElement
-      .appendChild(blogUndernameDetailElement)
-      .after(blogPostStarsBlockElement);
+        .appendChild(blogUndernameDetailElement)
+        .after(blogPostStarsBlockElement);
 
-      blogPostStarsBlockElement.appendChild(blogPostStarsElement);
+      blogPostStarsBlockElement
+        .appendChild(blogPostStarsElement);
 
       blogUndernameDetailElement
-      .appendChild(blogDateElement)
-      .after(blogTimeElement)
+        .appendChild(blogDateElement)
+        .after(blogTimeElement)
 
       docFrag.appendChild(firstElement);
     });
     document.getElementById('blogSection').appendChild(docFrag);
   }
 
-  imageClass(post) {
+  addClassForImagePost(post) {
     const _imgBlock = document.createElement('div');
 
-    document.querySelector(`.blog_id-${post.id}`).classList.add('blog_section-block-withpic');
-    document.querySelector(`.blog_id-${post.id}`).classList.add(`blog_section-block-${post.type}`);
+    document.querySelector(`.blog_id-${post.id}`)
+      .classList.add('blog_section-block-withpic');
+    document.querySelector(`.blog_id-${post.id}`)
+      .classList.add(`blog_section-block-${post.type}`);
 
     document.querySelector(`.blog_id-${post.id}`)
-    .querySelector('.blog_section-block-content')
-    .classList.add('blog_section-block-content-withpic');
+      .querySelector('.blog_section-block-content')
+      .classList.add('blog_section-block-content-withpic');
 
     document.querySelector(`.blog_id-${post.id}`)
-    .querySelector('.blog_section-block-content-description-fullblock')
-    .classList.remove('blog_section-block-content-description-fullblock');
+      .querySelector('.blog_section-block-content-description-fullblock')
+      .classList.remove('blog_section-block-content-description-fullblock');
 
     _imgBlock.setAttribute('style', `background-image: url(${post.imgLink});`);
     _imgBlock.setAttribute('alt', `image`);
     _imgBlock.setAttribute('class', 'blog_section-block-picture');
 
-    document.querySelector(`.blog_id-${post.id}`).prepend(_imgBlock);
+    document.querySelector(`.blog_id-${post.id}`)
+      .prepend(_imgBlock);
   }
 
-  ifFunc(post) {
+  characterLimit(post) {
     let limiter = 200;
     let postDescription = post.description;
     let descriptionArray = postDescription.split('');
@@ -151,8 +155,8 @@ class Post {
     if (data[0].id === post.id) {
       return 'blog_section-block-first';
     } else {
-      return '';
-    }
+        return '';
+      }
   }
 }
 
@@ -184,13 +188,13 @@ class CheckPostType extends Post {
 
 class PostImg extends Post{
   render(post) {
-    this.imageClass(post);
+    this.addClassForImagePost(post);
   }
 }
 
 class PostVideo extends Post{
   render(post) {
-    this.imageClass(post);
+    this.addClassForImagePost(post);
 
     document.querySelector(`.blog_id-${post.id}`)
     .querySelector('.blog_section-block-picture')
@@ -200,7 +204,7 @@ class PostVideo extends Post{
 
 class PostAudio extends Post{
   render(post) {
-    this.imageClass(post);
+    this.addClassForImagePost(post);
 
     const _audio = document.createElement('audio');
 
