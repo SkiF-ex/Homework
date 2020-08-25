@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none !important;
+
+  &:hover {
+    color: inherit !important;
+  }
+}
+
+button:hover {
+  cursor: pointer;
+}

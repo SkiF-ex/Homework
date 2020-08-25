@@ -1,0 +1,224 @@
+@mixin edit-bootstrap($lg, $md, $sm, $xs) {
+  @include make-xs-column($xs);
+  @include make-sm-column($sm);
+  @include make-md-column($md);
+  @include make-lg-column($lg);
+}
+
+@mixin portfoliohover {
+  &:hover {
+    &::before {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-attach.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 50px;
+      bottom: 0;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &::after {
+      content: '';
+      height: 60px;
+      width: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url(../img/icon-search.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
+
+@mixin whitesquare {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: $white;
+    width: 33px;
+    height: 37px;
+    right: 0;
+    top: 0;
+    border-bottom-left-radius: 5px;
+  }
+}
+
+@mixin orangesquare ($img) {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: $fantasy;
+    background-image: $img;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 78px;
+    height: 70px;
+    right: 0;
+    top: 0;
+    border-radius: 5px;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: $white;
+    width: 80px;
+    height: 72px;
+    right: 0;
+    top: 0;
+    border-bottom-left-radius: 5px;
+  }
+}
+
+@mixin header1 {
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 45px;
+}
+
+@mixin header2 {
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 39px;
+}
+
+@mixin header3 {
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+@mixin header4 {
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 17px;
+  line-height: 28px;
+}
+
+@mixin header5 {
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+@mixin paragraph1 {
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 17px;
+  line-height: 26px;
+}
+
+@mixin paragraph2 {
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+@mixin stars {
+  background-position: (0 center, 17px center, 35px center, 51px center, 67px center);
+  background-repeat: no-repeat;
+  margin: 5px 0 0 10px;
+  height: 14px;
+  width: 81px;
+}
+
+@mixin messangers ($dribbble: false) {
+  &-item {
+    &-link {
+      display: block;
+      height: 23px;
+      width: 23px;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-left: 25px;
+    }
+
+    &-link-facebook {
+      @include messangerhover;
+
+      background-image: url(../img/facebook.svg);
+      margin-left: 3px;
+    }
+
+    &-link-instagram {
+      @include messangerhover;
+
+      background-image: url(../img/dribbble.svg);
+    }
+
+    &-link-dribbble {
+      @include messangerhover;
+
+      background-image: url(../img/instagram.svg);
+    }
+
+    @if $dribbble {
+      &-link-instagram {
+        @include messangerhover;
+
+        background-image: url(../img/instagram.svg);
+      }
+
+      &-link-dribbble {
+        @include messangerhover;
+
+        background-image: url(../img/dribbble.svg);
+      }
+    }
+  }
+}
+
+@mixin messangerhover {
+  &:hover {
+    transform: rotate(10deg);
+  }
+}
+
+@mixin strips {
+  &-strip {
+    box-sizing: border-box;
+    height: 8px;
+    border: 1px solid $main-color;
+    border-top: none;
+    position: relative;
+    margin-top: 2.5px;
+  }
+
+  &-strip::before {
+    position: absolute;
+    content: '';
+    left: -4px;
+    box-sizing: border-box;
+    width: 3px;
+    border-top: 1px solid $main-color;
+  }
+
+  &-strip::after {
+    position: absolute;
+    content: '';
+    right: -4px;
+    box-sizing: border-box;
+    width: 3px;
+    border-top: 1px solid $main-color;
+  }
+}
