@@ -1,6 +1,5 @@
 import RenderLeftTitles from './leftAuthorBlock.js';
 import RenderRightTitles from './rightAuthorBlock.js';
-import RenderDescription from './postDescription.js';
 import {getAllPosts} from './render.js';
 
 const mediator = (function () {

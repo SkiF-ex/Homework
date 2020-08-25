@@ -1,4 +1,4 @@
-export default class RenderDescription {
+class RenderDescription {
   getAllPosts (target) {
     fetch('http://localhost:3000/api/list',
     {
