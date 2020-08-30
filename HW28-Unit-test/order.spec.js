@@ -16,21 +16,25 @@ describe('order.js', () => {
     expect(order.pizzas).toBeArray();
   });
 
-  it('should push pizza in array', () => {
-    expect(order.pizzas).toBeArrayOfSize(1);
-  });
-
   it('shoud contain objects in pizzas array', () => {
     expect(order.pizzas).toBeArrayOfObjects();
   })
 
-  it('should remove passed pizza from pizzas', () => {
-    order.pizzas = ['pizza'];
-    order.removePizza('pizza');
-    expect(order.pizzas).toBeArrayOfSize(0);
-  });
+  describe('addPizza', () => {
+    it('should push pizza in array', () => {
+      expect(order.pizzas).toBeArrayOfSize(1);
+    });
+  })
 
-  describe('totalPrice get', () => {
+  describe('removePizza', () => {
+    it('should remove passed pizza from pizzas', () => {
+      order.pizzas = ['pizza'];
+      order.removePizza('pizza');
+      expect(order.pizzas).toBeArrayOfSize(0);
+    });
+  })
+
+  describe('totalPrice', () => {
     afterEach(() => {
       order.removePizza('Pizza');
     });

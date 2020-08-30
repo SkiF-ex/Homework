@@ -21,7 +21,6 @@ describe('pizza.js', () => {
       size[this.size] = 2;
 
       expect(pizza.pizzaPrice).toBe(4);
-      expect(spyPizzaPrice).toHaveBeenCalled();
     });
   });
 
@@ -41,7 +40,6 @@ describe('pizza.js', () => {
       pizza.toppings = ['olives', 'mushrooms'];
 
       expect(pizza.toppingsPrice).toBe(0.55);
-      expect(spyToppingsPrice).toHaveBeenCalled();
     });
 
     it('should throw error `Topping ${i} can`t find`', () => {
@@ -50,10 +48,5 @@ describe('pizza.js', () => {
       expect(spyToppingsPrice).toThrowError(`Topping fake can't find`);
     });
 
-    xit('should throw error `Toppings can`t find`', () => {
-      this.toppings = undefined;
-      !this.toppings
-      expect(spyToppingsPrice).toThrowError(`Toppings can't find`);
-    });
   });
 })
