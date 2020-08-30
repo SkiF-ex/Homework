@@ -11,7 +11,7 @@ describe('pizza.js', () => {
     size[this.size] = 0;
   });
   
-  describe('pizzaPrice get', () => {
+  describe('pizzaPrice', () => {
     it('should throw error(Size can`t find)', () => {
       expect(spyPizzaPrice).toThrowError(`Size can't find`);
     });
@@ -24,7 +24,7 @@ describe('pizza.js', () => {
     });
   });
 
-  describe('toppingsPrice get', () => {
+  describe('toppingsPrice', () => {
     let spyToppingsPrice;
 
     beforeEach(() => {
