@@ -1,11 +1,13 @@
 describe('order.js', () => {
   let order;
   let spyTotalPrice;
+  let errorSpy;
 
   beforeEach(() => {
     order = new Order(); 
     spyTotalPrice = spyOnProperty(order, 'totalPrice').and.callThrough();
     order.addPizza(new Pizza (['olives'], 'large'));
+    errorSpy = spyOn(console, 'error'); 
   });
 
   afterEach(() => {
@@ -43,18 +45,22 @@ describe('order.js', () => {
       expect(order.totalPrice).toBe(0.6);
     });
 
-    it(`should throw error 'Pizza can't cost 0 USD'`, () => {
-      const test = {pizzaPrice: 0, toppings: 'olives', size: 'large'}
+    it(`should return error message 'Pizza must have a price'`, () => {
+      const test = {toppings: ['ham'], size: 'small'};
+      
       order.addPizza(test);
+      order.totalPrice;
 
-      expect(() => order.totalPrice).toThrowError(`Pizza can't cost 0 USD`);
-      order.removePizza(test);
+      expect(errorSpy).toHaveBeenCalledWith(`Pizza must have a price`);
     });
 
-    it(`should throw error message 'Pizza must have a price'`, () => {
-      this.pizzas = ['pizza'];
+    it(`should throw error message 'Pizza can't cost 0 USD'`, () => {
+      const test = { pizzaPrice: 0, toppings: ['ham'], size: 'small'};
 
-      expect(spyTotalPrice).toThrowError(`Pizza must have a price`);
+      order.addPizza(test);
+      order.totalPrice;
+
+      expect(errorSpy).toHaveBeenCalledWith(`Pizza can't cost 0 USD`);
     });
   });
 });

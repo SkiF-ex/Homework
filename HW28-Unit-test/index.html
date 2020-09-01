@@ -6,10 +6,45 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="container">
+        <h1 class="is-size-1 is-centered">Pizza creator</h1>
+
+        <form class="pizza-editor mb-20" style="display: none">
+            <div class="size mb-15">
+                <h5 class="is-size-5">Size:</h5>
+                <label class="radio"><input type="radio" name="size" value="small">Small</label>
+                <label class="radio"><input type="radio" name="size" value="medium">Medium</label>
+                <label class="radio"><input type="radio" name="size" value="large">Large</label>
+            </div>
+            <div class="toppings">
+                <h5 class="is-size-5">Toppings:</h5>
+                <label class="checkbox"><input type="checkbox" value="bacon" name="toppings">Bacon</label>
+                <label class="checkbox"><input type="checkbox" value="pepperoni" name="toppings">Pepperoni</label>
+                <label class="checkbox"><input type="checkbox" value="sausage" name="toppings">Sausage</label>
+                <label class="checkbox"><input type="checkbox" value="ham" name="toppings">Ham</label>
+                <label class="checkbox"><input type="checkbox" value="pineapple" name="toppings">Pineapple</label>
+                <label class="checkbox"><input type="checkbox" value="olives" name="toppings">Olives</label>
+                <label class="checkbox"><input type="checkbox" value="corn" name="toppings">Corn</label>
+                <label class="checkbox"><input type="checkbox" value="mushrooms" name="toppings">Mushrooms</label>
+            </div>
+        </form>
+
+        <h3 class="is-size-3">Order:</h3>
+
+        <div class="order"></div>
+    </div>
+
     <script src="pizza.js"></script>
     <script src="order.js"></script>
-    <script src="index.js"></script>
+    <script src="appController.js"></script>
+    <script>
+        const appController = new AppController();
+        appController.init();
+    </script>
 </body>
 </html>

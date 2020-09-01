@@ -1,0 +1,12 @@
+{
+  "pizzas": [
+    {
+      "toppings": ["ham", "bacon"],
+      "size": "large"
+    },
+    {
+      "toppings": ["corn", "olives"],
+      "size": "medium"
+    }
+  ]
+}

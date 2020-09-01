@@ -1,10 +1,12 @@
 describe('pizza.js', () => {
   let pizza;
   let spyPizzaPrice;
+  let errorSpy;
 
   beforeEach(() => {
     pizza = new Pizza(); 
     spyPizzaPrice = spyOnProperty(pizza, 'pizzaPrice').and.callThrough();
+    errorSpy = spyOn(console, 'error'); 
   });
 
   afterEach(() => {
@@ -12,8 +14,11 @@ describe('pizza.js', () => {
   });
   
   describe('pizzaPrice', () => {
-    it('should throw error(Size can`t find)', () => {
-      expect(spyPizzaPrice).toThrowError(`Size can't find`);
+    it(`should throw error message 'Size can't find'`, () => {
+      pizza.pizzaPrice;
+      size[this.size] = 0;
+
+      expect(errorSpy).toHaveBeenCalledWith(`Size can't find`);
     });
   
     it('should calculate pizza price', () => {

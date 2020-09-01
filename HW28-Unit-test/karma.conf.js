@@ -6,7 +6,7 @@ module.exports = function (config) {
         },
         files: [
             '*.js',
-            '*spec.js',
+            '*.spec.js',
         ],
         plugins: [
             'karma-jasmine',

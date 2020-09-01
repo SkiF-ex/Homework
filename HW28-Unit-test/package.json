@@ -2,7 +2,7 @@
   "name": "new-folder",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "appController.js",
   "scripts": {
     "test": "karma start"
   },

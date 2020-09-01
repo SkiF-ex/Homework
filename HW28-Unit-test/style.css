@@ -1,0 +1,29 @@
+.pizza {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.pizza:hover {
+    background: #ddd;
+    cursor: pointer;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.mb-15 {
+    margin-bottom: 15px;
+}
+.mb-5 {
+    margin-bottom: 5px;
+}
+.full-width {
+    width: 100%;
+}
+.is-centered {
+    text-align: center;
+}
+label {
+    padding-right: 5px;
+}
+input {
+    margin-right: 3px !important;
+}
